@@ -8,7 +8,7 @@ var typewriter = new Typewriter(app, {
 
 typewriter
   // .pauseFor(500)
-  .typeString('Cornell CS grad. Builder. Storyteller. Always creating something new.') //Add your own tagline
+  .typeString('Software Engineer. Fullstack & UI/UX Developer. Game Designer. Cornell CS Alum.') //Add your own tagline
   .pauseFor(3000)
   .start()
 
