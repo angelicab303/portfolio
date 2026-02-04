@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Typewriter from 'typewriter-effect';
 import LogoScroller from '@/components/ui/LogoScroller';
 import MobileLogoScroller from '@/components/ui/MobileLogoScroller';
+import SocialLinks from '@/components/ui/SocialLinks';
 import { useTheme } from '@/app/contexts/ThemeContext';
 
 const Hero: React.FC = () => {
@@ -15,6 +16,27 @@ const Hero: React.FC = () => {
   const sideWidth = '13vw'; // (100vw - 75vw) / 2 = 12.5vw
   const scrollerWidth = `calc(${sideWidth} * 0.7)`; // Icons take 70% of the side width
   const { theme } = useTheme();
+
+  // Replace these with your actual links
+  const socialLinks = [
+    {
+      type: 'linkedin' as const,
+      url: 'https://www.linkedin.com/in/angelica-borowy/',
+      ariaLabel: 'LinkedIn Profile'
+    },
+    {
+      type: 'github' as const,
+      url: 'https://github.com/angelicab303',
+      ariaLabel: 'GitHub Profile'
+    },
+    {
+      type: 'email' as const,
+      url: 'mailto:angelicaborowy@gmail.com',
+      displayType: 'text' as const,
+      text: 'angelicaborowy@gmail.com',
+      ariaLabel: 'Email Address'
+    }
+  ];
 
   useEffect(() => {
     const checkMobile = () => {
@@ -145,6 +167,12 @@ const Hero: React.FC = () => {
                 }}
               />
             </div>
+            
+            <SocialLinks 
+              links={socialLinks}
+              iconSize={isMobile ? 24 : 28}
+              gap={isMobile ? '1rem' : '1.5rem'}
+            />
           </div>
         </div>
       </div>

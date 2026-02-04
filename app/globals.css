@@ -135,7 +135,7 @@ p.body-text {
 /* Layout Utilities */
 .section-container {
   padding: 60px 5%;
-  max-width: 1400px;
+  max-width: 80vw;
   margin: 0 auto;
 }
 
