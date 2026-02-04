@@ -30,7 +30,7 @@ const LogoScroller: React.FC<LogoScrollerProps> = ({ side, height = '500px', wid
     { id: 6, iconClass: 'devicon-cplusplus-plain-wordmark colored', name: 'C++' },
     { id: 7, iconClass: 'devicon-csharp-plain-wordmark colored', name: 'C#' },
     { id: 8, iconClass: 'devicon-tailwindcss-plain-wordmark colored', name: 'Tailwind CSS' },
-    { id: 9, iconClass: 'devicon-express-original-wordmark', name: 'Express' },
+    // { id: 9, iconClass: 'devicon-express-original-wordmark', name: 'Express' },
     { id: 10, iconClass: 'devicon-fastapi-plain-wordmark colored', name: 'FastAPI' },
     { id: 11, iconClass: 'devicon-postgresql-plain-wordmark colored', name: 'PostgreSQL' },
     { id: 12, iconClass: 'devicon-mysql-plain-wordmark colored', name: 'MySQL' },

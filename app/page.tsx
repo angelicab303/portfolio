@@ -1,9 +1,10 @@
 import Header from '@/components/ui/Header'
-import Hero from '@/components/Hero'
+import Hero from '@/components/sections/Hero'
 import ProjectSection from '@/components/ProjectSection'
-import HobbySection from '@/components/HobbySection'
-import Contact from '@/components/Contact'
-import Intro from '@/components/Intro'
+import HobbySection from '@/components/sections/HobbySection'
+import Contact from '@/components/sections/Contact'
+import Intro from '@/components/sections/Intro'
+import WorkSection from '@/components/sections/WorkSection'
 
 export default function Home() {
   return (
@@ -15,12 +16,18 @@ export default function Home() {
         <Intro />
       </div>
       
+      {/* Full-width section divider */}
+      <div className="section-divider"></div>
+      
+      {/* Work Experience Section */}
+      <div id="work">
+        <WorkSection />
+      </div>
+      
+      {/* Full-width section divider */}
+      <div className="section-divider"></div>
+      
       <div className="main-content">
-        {/* Work Experience Section */}
-        <div id="work" className="work-header">
-          <h1>Work Experience</h1>
-        </div>
-        
         <ProjectSection />
         
         {/* Hobbies Section */}

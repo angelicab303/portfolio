@@ -161,7 +161,7 @@ const Hero: React.FC = () => {
                 }}
                 onInit={(typewriter) => {
                   typewriter
-                    .typeString('Software Engineer. Fullstack & UI/UX Developer. Game Designer.')
+                    .typeString('Software Engineer. Full Stack & UI/UX Developer. Game Designer.')
                     .pauseFor(3000)
                     .start();
                 }}
