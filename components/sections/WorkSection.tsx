@@ -7,18 +7,28 @@ const WorkSection: React.FC = () => {
   const workExperiences = [
     {
       title: 'PushFi',
-      positions: ['Project Lead', 'Gameplay & Networking Programmer'],
-      date: 'Jan 2025 - May 2025',
-      description: 'Jump into the treasure-seeking antics of a sugar-glider in parties of 2-4 players. A competitive mobile game built for iOS and Android devices.',
-      imageSrc: '/images/PushFiLight.png', // Put your image in public/images/ folder
+      subtitle: 'Early Stage Fintech AI Startup', 
+      positions: ['Full Stack Engineer', 'UI/UX Designer'],
+      date: 'Sep 2025 - Current',
+      description: 'Owned the complete front-end redesign of a fintech lending platform. Developed critical features from the ground up, taking the platform from early prototype to beta-ready in 6 months. As one of two developers during this phase, I architected and implemented the entire user-facing platform, agent onboarding system, and built secure backend API with optimized database architecture.',
+      keyResponsibilities: [
+        'Redesigned 100% of platform UI/UX for beta launch',
+        'Built agent network and white-label branding features from scratch',
+        'Architected secure document management system with AWS S3',
+        'Solo developer responsible for front-end, back-end, and database architecture'
+      ],
+      technologies: ['React', 'Next.js', 'TypeScript', 'AWS S3', 'MongoDB', 'Tailwind CSS', 'Postman'],
+      imageSrc: '/images/PushFiLight.png',
       imageAlt: 'PushFi Screenshot'
     },
     {
       title: 'Simulacrum',
-      positions: ['Software Engineer', 'UI/UX Designer'],
-      date: 'April 2019 - TBD',
+      subtitle: 'AI Forecasting Service | Cornell Tech Runway Startup', 
+      positions: ['Full Stack Developer Intern', 'Part-Time'],
+      date: 'Sep 2025 - Dec 2025',
       description: 'Nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Morbi quis commodo odio aenean sed adipiscing diam. Vitae purus faucibus ornare suspendisse sed. Vitae congue mauris rhoncus aenean vel. Ut ornare lectus sit amet est placerat in. Congue quisque egestas diam in.',
-      imageSrc: '/images/PushFiDark.png', // Replace with actual image
+      technologies: ['Python', 'FastAPI', 'React', 'MongoDB'],
+      imageSrc: '/images/SimulacrumLanding.png',
       imageAlt: 'Simulacrum screenshot'
     }
   ];
@@ -29,9 +39,12 @@ const WorkSection: React.FC = () => {
         <WorkItem
           key={index}
           title={work.title}
+          subtitle={work.subtitle}
           positions={work.positions}
           date={work.date}
           description={work.description}
+          keyResponsibilities={work.keyResponsibilities}
+          technologies={work.technologies}
           imageSrc={work.imageSrc}
           imageAlt={work.imageAlt}
           reversed={index % 2 !== 0}

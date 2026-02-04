@@ -4,21 +4,27 @@ import React from 'react';
 
 interface WorkItemProps {
   title: string;
-  positions: string[]; // Array of positions to be joined by |
+  subtitle?: string;
+  positions: string[];
   date: string;
   description: string;
-  imageSrc?: string; // Optional image source
-  imageAlt?: string; // Optional image alt text
-  reversed?: boolean; // Optional: reverse layout for alternating items
-  isFirst?: boolean; // Optional: is this the first item (to add section header)
-  onSeeMore?: () => void; // Optional: callback for See More button
+  keyResponsibilities?: string[]; // New optional prop
+  technologies?: string[]; // New optional prop
+  imageSrc?: string;
+  imageAlt?: string;
+  reversed?: boolean;
+  isFirst?: boolean;
+  onSeeMore?: () => void;
 }
 
 const WorkItem: React.FC<WorkItemProps> = ({
   title,
+  subtitle,
   positions,
   date,
   description,
+  keyResponsibilities,
+  technologies,
   imageSrc,
   imageAlt = 'Work image',
   reversed = false,
@@ -41,6 +47,15 @@ const WorkItem: React.FC<WorkItemProps> = ({
             {/* Left side - Text content (40%) */}
             <div className="work-item-info">
               <h2>{title}</h2>
+              {subtitle && (
+                <p className="body-text" style={{ 
+                  marginTop: '0px', 
+                  marginBottom: '12px',
+                  opacity: 0.8 
+                }}>
+                  {subtitle}
+                </p>
+              )}
               <div className="divider" />
               <h4 className="subheader">
                 {positions.join(' | ')}
@@ -51,6 +66,16 @@ const WorkItem: React.FC<WorkItemProps> = ({
               <p className="body-text">
                 {description}
               </p>
+              
+              {/* Technologies Used Section */}
+              {technologies && technologies.length > 0 && (
+                <div style={{ marginTop: '15px', marginBottom: '15px' }}>
+                  <p className="body-text" style={{ marginBottom: '5px' }}>
+                    <strong>Technologies used:</strong> {technologies.join(', ')}
+                  </p>
+                </div>
+              )}
+              
               <button className="see-more-button" onClick={onSeeMore}>
                 See more
               </button>
