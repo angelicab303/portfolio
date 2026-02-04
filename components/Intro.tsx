@@ -8,7 +8,6 @@ const Introduction: React.FC = () => {
       <h1 className="page-title">Welcome to My Portfolio</h1>
 
       <div className="flex-container">
-        {/* Text Content */}
         <div className="flex-text-content">
           <div className="divider" />
 
@@ -27,7 +26,6 @@ const Introduction: React.FC = () => {
           </p>
         </div>
 
-        {/* Profile Image */}
         <div className="flex-image-content">
           <img 
             src="/images/profile.jpg" 

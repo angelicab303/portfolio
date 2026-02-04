@@ -9,6 +9,10 @@ import { useTheme } from '@/app/contexts/ThemeContext';
 const Hero: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [imageWidth, setImageWidth] = useState('85%');
+  const [heroHeight, setHeroHeight] = useState('60vh');
+  const [imageHeight, setImageHeight] = useState('500px');
+  const [titleSize, setTitleSize] = useState('3rem');
+  const [subtitleSize, setSubtitleSize] = useState('1.2rem');
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -16,17 +20,36 @@ const Hero: React.FC = () => {
       const width = window.innerWidth;
       setIsMobile(width <= 768);
       
-      // Adjust image width based on screen size to prevent logo cutoff
       if (width <= 768) {
         setImageWidth('95%');
+        setHeroHeight('80vh');
+        setImageHeight('70vh');
+        setTitleSize('2.5rem');
+        setSubtitleSize('1.1rem');
       } else if (width <= 1000) {
         setImageWidth('60%');
+        setHeroHeight('60vh');
+        setImageHeight('500px');
+        setTitleSize('3rem');
+        setSubtitleSize('1.2rem');
       } else if (width <= 1200) {
         setImageWidth('65%');
+        setHeroHeight('60vh');
+        setImageHeight('500px');
+        setTitleSize('3rem');
+        setSubtitleSize('1.2rem');
       } else if (width <= 1400) {
         setImageWidth('70%');
+        setHeroHeight('60vh');
+        setImageHeight('500px');
+        setTitleSize('3rem');
+        setSubtitleSize('1.2rem');
       } else {
         setImageWidth('75%');
+        setHeroHeight('60vh');
+        setImageHeight('500px');
+        setTitleSize('3rem');
+        setSubtitleSize('1.2rem');
       }
     };
     
@@ -38,44 +61,10 @@ const Hero: React.FC = () => {
   
   return (
     <>
-      <div style={{
-        position: 'relative',
-        width: '100%',
-        height: isMobile ? '80vh' : '60vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        overflow: 'hidden',
-        boxShadow: theme === 'light' 
-          ? '0 4px 6px rgba(0, 0, 0, 0.1)' 
-          : '0 4px 6px rgba(0, 0, 0, 0.3)',
-        marginTop: '75px',
-        transition: 'box-shadow 0.3s ease'
-      }}>
-        {/* Background */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background: theme === 'light' ? '#efefefff' : '#3b1e1eff',
-          zIndex: 1,
-          transition: 'background 0.3s ease'
-        }}></div>
+      <div className="hero-container" style={{ height: heroHeight }}>
+        <div className="hero-background"></div>
 
-        {/* Container to constrain logo positioning */}
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          maxWidth: '1600px',
-          height: '100%',
-          margin: '0 auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-          {/* Scrolling logos - Desktop only */}
+        <div className="hero-content-container">
           {!isMobile && (
             <>
               <LogoScroller side="left" />
@@ -83,80 +72,29 @@ const Hero: React.FC = () => {
             </>
           )}
           
-          {/* Image container with rounded corners and blur overlay */}
-          <div style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: imageWidth,
-            maxWidth: '1200px',
-            zIndex: 2
-          }}>
-            <div style={{
-              position: 'relative',
-              width: '100%',
-              height: isMobile ? '70vh' : '500px',
-              borderRadius: '4px',
-              overflow: 'hidden',
-              boxShadow: theme === 'light'
-                ? '4px 0 6px rgba(0, 0, 0, 0.1), -4px 0 6px rgba(0, 0, 0, 0.1)'
-                : '4px 0 6px rgba(0, 0, 0, 0.3), -4px 0 6px rgba(0, 0, 0, 0.3)',
-              transition: 'box-shadow 0.3s ease'
-            }}>
+          <div className="hero-image-container" style={{ width: imageWidth, maxWidth: '1200px' }}>
+            <div style={{ position: 'relative', width: '100%', height: imageHeight }}>
               <img 
                 src="/images/CornellBackdrop.jpg" 
                 alt="Cornell Campus"
+                className="hero-image"
+              />
+              <div 
+                className="hero-overlay"
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  display: 'block'
+                  background: theme === 'light' 
+                    ? 'rgba(46, 46, 46, 0.3)' 
+                    : 'rgba(15, 23, 42, 0.5)'
                 }}
               />
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                background: theme === 'light' 
-                  ? 'rgba(46, 46, 46, 0.3)' 
-                  : 'rgba(15, 23, 42, 0.5)',
-                backdropFilter: 'blur(0px)',
-                transition: 'background 0.3s ease'
-              }}></div>
             </div>
           </div>
           
-          {/* Content */}
-          <div style={{
-            position: 'relative',
-            zIndex: 3,
-            textAlign: 'center',
-            color: 'white',
-            padding: '20px',
-            marginTop: '-50px'
-          }}>
-            <h1 style={{
-              fontSize: isMobile ? '2.5rem' : '3rem',
-              fontWeight: 700,
-              marginBottom: '1rem',
-              textShadow: theme === 'light'
-                ? '2px 2px 8px rgba(0, 0, 0, 0.5)'
-                : '2px 2px 8px rgba(0, 0, 0, 0.8)',
-              color: 'white',
-              transition: 'text-shadow 0.3s ease'
-            }}>Angelica Borowy</h1>
-            <div id="typewriter" style={{
-              fontSize: isMobile ? '1.1rem' : '1.2rem',
-              fontWeight: 300,
-              textShadow: theme === 'light'
-                ? '1px 1px 4px rgba(0, 0, 0, 0.5)'
-                : '1px 1px 4px rgba(0, 0, 0, 0.8)',
-              color: 'white',
-              transition: 'text-shadow 0.3s ease'
-            }}>
+          <div className="hero-text">
+            <h1 className="hero-title" style={{ fontSize: titleSize }}>
+              Angelica Borowy
+            </h1>
+            <div className="hero-subtitle" style={{ fontSize: subtitleSize }}>
               <Typewriter
                 options={{
                   delay: 75,
@@ -173,7 +111,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile horizontal scroller - renders below hero */}
       {isMobile && <MobileLogoScroller />}
     </>
   );

@@ -8,7 +8,6 @@ const MobileLogoScroller: React.FC = () => {
   const { theme } = useTheme();
 
   useEffect(() => {
-    // Load DevIcon CSS if not already loaded
     if (!document.querySelector('link[href*="devicon"]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -17,7 +16,6 @@ const MobileLogoScroller: React.FC = () => {
     }
   }, []);
 
-  // Tech stack logos with DevIcon class names
   const logos = [
     { id: 1, iconClass: 'devicon-react-original-wordmark colored', name: 'React' },
     { id: 2, iconClass: 'devicon-typescript-plain colored', name: 'TypeScript' },
@@ -45,76 +43,16 @@ const MobileLogoScroller: React.FC = () => {
   ];
 
   return (
-    <>
-      <div style={{
-        position: 'relative',
-        width: '100%',
-        height: '120px',
-        overflow: 'hidden',
-        backgroundColor: theme === 'light' ? '#efefefff' : '#1e293b',
-        zIndex: 4,
-        display: 'flex',
-        alignItems: 'center',
-        transition: 'background-color 0.3s ease'
-      }}>
-        <Marquee speed={50} gradient={false} pauseOnHover={false}>
-          {logos.map((logo, index) => (
-            <div
-              key={index}
-              className="logo-icon"
-              style={{
-                width: '100px',
-                height: '100px',
-                backgroundColor: theme === 'light'
-                  ? 'rgba(255, 255, 255, 0.69)'
-                  : 'rgba(30, 41, 59, 0.8)',
-                borderRadius: '8px',
-                flexShrink: 0,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: theme === 'light'
-                  ? '0 2px 4px rgba(0, 0, 0, 0.1)'
-                  : '0 2px 4px rgba(0, 0, 0, 0.3)',
-                padding: '8px',
-                position: 'relative',
-                marginRight: '20px',
-                transition: 'background-color 0.3s ease, box-shadow 0.3s ease'
-              }}
-            >
-              <i 
-                className={logo.iconClass}
-                style={{
-                  fontSize: '76px'
-                }}
-              />
-              <div 
-                className="icon-overlay"
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  backgroundColor: theme === 'light'
-                    ? 'rgba(154, 152, 152, 0.1)'
-                    : 'rgba(0, 0, 0, 0.2)',
-                  borderRadius: '8px',
-                  transition: 'opacity 0.3s ease',
-                  pointerEvents: 'none'
-                }}
-              />
-            </div>
-          ))}
-        </Marquee>
-      </div>
-
-      <style jsx>{`
-        .logo-icon:hover .icon-overlay {
-          opacity: 0;
-        }
-      `}</style>
-    </>
+    <div className="mobile-logo-scroller">
+      <Marquee speed={50} gradient={false} pauseOnHover={false}>
+        {logos.map((logo, index) => (
+          <div key={index} className="logo-icon" style={{ marginRight: '20px' }}>
+            <i className={logo.iconClass} />
+            <div className="icon-overlay" />
+          </div>
+        ))}
+      </Marquee>
+    </div>
   );
 };
 
