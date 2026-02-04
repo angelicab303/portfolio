@@ -42,12 +42,30 @@ const MobileLogoScroller: React.FC = () => {
     { id: 23, iconClass: 'devicon-blender-original-wordmark colored', name: 'Blender' },
   ];
 
+  const iconSize = '60px'; // Mobile icon size
+  const iconFontSize = '45px'; // Mobile icon font size
+
   return (
     <div className="mobile-logo-scroller">
       <Marquee speed={50} gradient={false} pauseOnHover={false}>
         {logos.map((logo, index) => (
-          <div key={index} className="logo-icon" style={{ marginRight: '20px' }}>
-            <i className={logo.iconClass} />
+          <div 
+            key={index} 
+            className="logo-icon" 
+            style={{ 
+              marginRight: '15px',
+              width: iconSize,
+              height: iconSize,
+              minWidth: iconSize,
+              minHeight: iconSize
+            }}
+          >
+            <i 
+              className={logo.iconClass}
+              style={{
+                fontSize: iconFontSize
+              }}
+            />
             <div className="icon-overlay" />
           </div>
         ))}

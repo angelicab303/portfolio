@@ -8,11 +8,12 @@ import { useTheme } from '@/app/contexts/ThemeContext';
 
 const Hero: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [imageWidth, setImageWidth] = useState('85%');
-  const [heroHeight, setHeroHeight] = useState('60vh');
-  const [imageHeight, setImageHeight] = useState('500px');
   const [titleSize, setTitleSize] = useState('3rem');
   const [subtitleSize, setSubtitleSize] = useState('1.2rem');
+  const imageHeight = '83vh';
+  const imageWidth = '75vw';
+  const sideWidth = '13vw'; // (100vw - 75vw) / 2 = 12.5vw
+  const scrollerWidth = `calc(${sideWidth} * 0.7)`; // Icons take 70% of the side width
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -21,35 +22,14 @@ const Hero: React.FC = () => {
       setIsMobile(width <= 768);
       
       if (width <= 768) {
-        setImageWidth('95%');
-        setHeroHeight('80vh');
-        setImageHeight('70vh');
         setTitleSize('2.5rem');
         setSubtitleSize('1.1rem');
-      } else if (width <= 1000) {
-        setImageWidth('60%');
-        setHeroHeight('60vh');
-        setImageHeight('500px');
-        setTitleSize('3rem');
-        setSubtitleSize('1.2rem');
       } else if (width <= 1200) {
-        setImageWidth('65%');
-        setHeroHeight('60vh');
-        setImageHeight('500px');
-        setTitleSize('3rem');
-        setSubtitleSize('1.2rem');
-      } else if (width <= 1400) {
-        setImageWidth('70%');
-        setHeroHeight('60vh');
-        setImageHeight('500px');
         setTitleSize('3rem');
         setSubtitleSize('1.2rem');
       } else {
-        setImageWidth('75%');
-        setHeroHeight('60vh');
-        setImageHeight('500px');
-        setTitleSize('3rem');
-        setSubtitleSize('1.2rem');
+        setTitleSize('3.5rem');
+        setSubtitleSize('1.3rem');
       }
     };
     
@@ -61,19 +41,77 @@ const Hero: React.FC = () => {
   
   return (
     <>
-      <div className="hero-container" style={{ height: heroHeight }}>
+      <div className="hero-container" style={{ minHeight: '100vh', position: 'relative' }}>
         <div className="hero-background"></div>
 
-        <div className="hero-content-container">
-          {!isMobile && (
-            <>
-              <LogoScroller side="left" />
-              <LogoScroller side="right" />
-            </>
-          )}
-          
-          <div className="hero-image-container" style={{ width: imageWidth, maxWidth: '1200px' }}>
-            <div style={{ position: 'relative', width: '100%', height: imageHeight }}>
+        {!isMobile && (
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            zIndex: 5
+          }}>
+            {/* Left Section */}
+            <div style={{
+              width: sideWidth,
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+              position: 'relative'
+            }}>
+              <div style={{
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)'
+              }}>
+                <LogoScroller side="left" height={imageHeight} width={scrollerWidth} />
+              </div>
+            </div>
+
+            {/* Center Section */}
+            <div style={{
+              width: imageWidth,
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0
+            }}>
+              {/* Image will be placed here by hero-content-container */}
+            </div>
+
+            {/* Right Section */}
+            <div style={{
+              width: sideWidth,
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+              position: 'relative'
+            }}>
+              <div style={{
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)'
+              }}>
+                <LogoScroller side="right" height={imageHeight} width={scrollerWidth} />
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="hero-content-container" style={{ position: 'relative', zIndex: 10 }}>
+          <div className="hero-image-container" style={{ width: isMobile ? '95%' : imageWidth }}>
+            <div style={{ position: 'relative', width: '100%', height: isMobile ? '70vh' : imageHeight }}>
               <img 
                 src="/images/CornellBackdrop.jpg" 
                 alt="Cornell Campus"

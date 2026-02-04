@@ -5,9 +5,11 @@ import { useTheme } from '@/app/contexts/ThemeContext';
 
 interface LogoScrollerProps {
   side: 'left' | 'right';
+  height?: string;
+  width?: string;
 }
 
-const LogoScroller: React.FC<LogoScrollerProps> = ({ side }) => {
+const LogoScroller: React.FC<LogoScrollerProps> = ({ side, height = '500px', width = '100px' }) => {
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -46,13 +48,19 @@ const LogoScroller: React.FC<LogoScrollerProps> = ({ side }) => {
   ];
 
   const duplicatedLogos = [...logos, ...logos];
-  const distanceFromEdge = '50px';
+
+  // Calculate icon size based on width (80% of the container width)
+  const iconSize = `calc(${width} * 0.8)`;
+  const iconFontSize = `calc(${width} * 0.6)`;
 
   return (
     <div 
       className="logo-scroller"
       style={{
-        [side]: distanceFromEdge
+        height: height,
+        width: width,
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
       <div 
@@ -62,8 +70,22 @@ const LogoScroller: React.FC<LogoScrollerProps> = ({ side }) => {
         }}
       >
         {duplicatedLogos.map((logo, index) => (
-          <div key={`${side}-${index}`} className="logo-icon">
-            <i className={logo.iconClass} />
+          <div 
+            key={`${side}-${index}`} 
+            className="logo-icon"
+            style={{
+              width: iconSize,
+              height: iconSize,
+              minWidth: iconSize,
+              minHeight: iconSize
+            }}
+          >
+            <i 
+              className={logo.iconClass}
+              style={{
+                fontSize: iconFontSize
+              }}
+            />
             <div className="icon-overlay" />
           </div>
         ))}
