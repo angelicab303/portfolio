@@ -1,6 +1,6 @@
 import Header from '@/components/ui/Header'
 import Hero from '@/components/sections/Hero'
-import ProjectSection from '@/components/ProjectSection'
+import ProjectSection from '@/components/sections/ProjectSection'
 import HobbySection from '@/components/sections/HobbySection'
 import Contact from '@/components/sections/Contact'
 import Intro from '@/components/sections/Intro'
@@ -17,7 +17,7 @@ export default function Home() {
       </div>
       
       {/* Full-width section divider */}
-      <div className="section-divider"></div>
+      <div className="w-[80vw] h-px mb-[30px] mx-auto transition-colors duration-300" style={{ backgroundColor: 'var(--accent-border)' }} />
       
       {/* Work Experience Section */}
       <div id="work">
@@ -27,16 +27,15 @@ export default function Home() {
       {/* Full-width section divider */}
       <div className="section-divider"></div>
       
-      <div className="main-content">
+      {/* Projects Section */}
+      <div id="projects">
         <ProjectSection />
-        
-        {/* Hobbies Section */}
-        <div id="projects" className="work-header">
-          <h1>Personal Projects & Hobbies</h1>
-        </div>
-        
-        <HobbySection />
-        
+      </div>
+      
+      {/* Full-width section divider */}
+      <div className="section-divider"></div>
+      
+      <div className="main-content">
         {/* Gallery Section - Add your gallery component here */}
         <div id="gallery" className="work-header">
           <h1>Gallery</h1>

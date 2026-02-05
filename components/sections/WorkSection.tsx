@@ -62,7 +62,6 @@ const WorkSection: React.FC = () => {
       media: [
         {
           src: '/videos/Simulacrum_LandingPage_Animation_Showcase.mov',
-        //   src: '/videos/Fury_Level_UIs.mov',
           type: 'video' as const,
           alt: 'Simulacrum Landing Page',
           subtitle: 'Interactive Landing Page'
@@ -89,6 +88,7 @@ const WorkSection: React.FC = () => {
           reversed={index % 2 !== 0}
           isFirst={index === 0}
           readMoreContent={work.readMoreContent}
+          sectionTitle={index === 0 ? "Work Experience" : undefined}
         />
       ))}
     </>

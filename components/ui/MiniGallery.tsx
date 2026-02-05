@@ -120,7 +120,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
         <div className="flex justify-end -mt-4 px-4 md:px-4">
           <button
             onClick={handleOpenModal}
-            className="flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/10 opacity-70"
+            className="flex items-center gap-2 px-4 py-2 mb-2 rounded-md transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/10 opacity-70"
             style={{ color: 'var(--text-primary)' }}
             aria-label="View fullscreen"
           >
@@ -161,14 +161,14 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
                 }
                 }
             }}
-            className="relative h-36 md:h-40 w-full max-w-md overflow-x-auto overflow-y-hidden"
+            className="relative h-32 md:h-32 w-full max-w-md overflow-x-auto overflow-y-hidden"
             >
-            <div className="flex gap-4 px-2 py-2 transition-transform duration-500 ease-in-out">
+            <div className="flex gap-4 px-2 py-1 transition-transform duration-500 ease-in-out">
                 {media.map((item, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`flex-shrink-0 w-30 h-30 rounded-lg overflow-hidden transition-all duration-300 ${
+                    className={`flex-shrink-0 w-30 h-20 rounded-lg overflow-hidden transition-all duration-300 ${
                       index === currentIndex
                         ? 'opacity-100 scale-110'
                         : 'opacity-50 hover:opacity-75 scale-100'
@@ -178,13 +178,13 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
                       <img
                         src={item.src}
                         alt={item.alt || `Thumbnail ${index + 1}`}
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-cover"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center relative">
                         <video
                           src={item.src}
-                          className="w-full h-full object-contain"
+                          className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                           <svg

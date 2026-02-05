@@ -11,6 +11,7 @@ interface WorkItemProps {
   description: string;
   keyResponsibilities?: string[];
   technologies?: string[];
+  teamSize?: string;
   link?: {
     url: string;
     label: string;
@@ -27,6 +28,7 @@ interface WorkItemProps {
   isFirst?: boolean;
   onSeeMore?: () => void;
   readMoreContent?: React.ReactNode;
+  sectionTitle?: string;
 }
 
 const WorkItem: React.FC<WorkItemProps> = ({ 
@@ -37,6 +39,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
   description, 
   keyResponsibilities, 
   technologies,
+  teamSize,
   link,
   media,
   imageSrc, 
@@ -44,7 +47,8 @@ const WorkItem: React.FC<WorkItemProps> = ({
   reversed = false, 
   isFirst = false, 
   onSeeMore,
-  readMoreContent
+  readMoreContent,
+  sectionTitle
 }) => {
   const [isMobile, setIsMobile] = React.useState(false);
   const [isExpanded, setIsExpanded] = React.useState(false);
@@ -60,10 +64,10 @@ const WorkItem: React.FC<WorkItemProps> = ({
 
   return (
     <>
-      {isFirst && (
+      {isFirst && sectionTitle && (
         <div className="py-[60px] px-[5%] max-w-[80vw] mx-auto">
           <h1 className="font-['Rubik'] text-[2.0rem] font-bold mb-5" style={{ color: 'var(--text-primary)' }}>
-            Work Experience
+            {sectionTitle}
           </h1>
         </div>
       )}
@@ -94,8 +98,16 @@ const WorkItem: React.FC<WorkItemProps> = ({
                 {description}
               </p>
               
-              {technologies && technologies.length > 0 && (
+              {teamSize && (
                 <div className="mt-[15px] mb-[15px]">
+                  <p className="font-['Rubik'] text-base mb-[5px] leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                    <strong>Team size:</strong> {teamSize}
+                  </p>
+                </div>
+              )}
+              
+              {technologies && technologies.length > 0 && (
+                <div className={`mb-[15px] ${!teamSize ? 'mt-[15px]' : ''}`}>
                   <p className="font-['Rubik'] text-base mb-[5px] leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     <strong>Technologies used:</strong> {technologies.join(', ')}
                   </p>
