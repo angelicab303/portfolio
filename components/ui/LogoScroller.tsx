@@ -30,7 +30,6 @@ const LogoScroller: React.FC<LogoScrollerProps> = ({ side, height = '500px', wid
     { id: 6, iconClass: 'devicon-cplusplus-plain-wordmark colored', name: 'C++' },
     { id: 7, iconClass: 'devicon-csharp-plain-wordmark colored', name: 'C#' },
     { id: 8, iconClass: 'devicon-tailwindcss-plain-wordmark colored', name: 'Tailwind CSS' },
-    // { id: 9, iconClass: 'devicon-express-original-wordmark', name: 'Express' },
     { id: 10, iconClass: 'devicon-fastapi-plain-wordmark colored', name: 'FastAPI' },
     { id: 11, iconClass: 'devicon-postgresql-plain-wordmark colored', name: 'PostgreSQL' },
     { id: 12, iconClass: 'devicon-mysql-plain-wordmark colored', name: 'MySQL' },
@@ -48,45 +47,20 @@ const LogoScroller: React.FC<LogoScrollerProps> = ({ side, height = '500px', wid
   ];
 
   const duplicatedLogos = [...logos, ...logos];
-
-  // Calculate icon size based on width (80% of the container width)
   const iconSize = `calc(${width} * 0.8)`;
   const iconFontSize = `calc(${width} * 0.6)`;
 
   return (
-    <div 
-      className="logo-scroller"
-      style={{
-        height: height,
-        width: width,
-        position: 'relative',
-        overflow: 'hidden'
-      }}
-    >
-      <div 
-        className="logo-scroller-inner"
-        style={{
-          animation: side === 'left' ? 'scrollUp 35s linear infinite' : 'scrollDown 35s linear infinite'
-        }}
-      >
+    <div className="relative z-[3] overflow-hidden" style={{ height, width, maskImage: 'linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%)' }}>
+      <style jsx>{`
+        @keyframes scrollUp { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
+        @keyframes scrollDown { 0% { transform: translateY(-50%); } 100% { transform: translateY(0); } }
+      `}</style>
+      <div className="flex flex-col gap-5" style={{ animation: side === 'left' ? 'scrollUp 35s linear infinite' : 'scrollDown 35s linear infinite' }}>
         {duplicatedLogos.map((logo, index) => (
-          <div 
-            key={`${side}-${index}`} 
-            className="logo-icon"
-            style={{
-              width: iconSize,
-              height: iconSize,
-              minWidth: iconSize,
-              minHeight: iconSize
-            }}
-          >
-            <i 
-              className={logo.iconClass}
-              style={{
-                fontSize: iconFontSize
-              }}
-            />
-            <div className="icon-overlay" />
+          <div key={`${side}-${index}`} className="rounded-lg flex-shrink-0 flex items-center justify-center p-2 cursor-pointer relative transition-all duration-300" style={{ width: iconSize, height: iconSize, minWidth: iconSize, minHeight: iconSize, backgroundColor: 'var(--icon-bg)', boxShadow: '0 2px 4px var(--card-shadow)' }}>
+            <i className={logo.iconClass} style={{ fontSize: iconFontSize, display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
+            <div className="absolute top-0 left-0 w-full h-full rounded-lg transition-opacity duration-300 pointer-events-none" style={{ backgroundColor: 'var(--icon-overlay)' }} />
           </div>
         ))}
       </div>
