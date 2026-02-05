@@ -34,7 +34,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
 
   return (
     <>
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full relative">
         {/* Media Display Area */}
         <div className="flex justify-center overflow-visible mb-4 p-4 -mx-4 md:mx-0 md:p-4">
           {currentMedia.type === 'image' ? (
@@ -56,13 +56,76 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
           )}
         </div>
 
+        {/* Thumbnail Preview Strip - Only show if more than 1 media item */}
+        {media.length > 1 && (
+        <div className="flex justify-center mb-2 px-4">
+            <div 
+            ref={(el) => {
+                if (el) {
+                const thumbnails = el.querySelectorAll('button');
+                const currentThumbnail = thumbnails[currentIndex];
+                if (currentThumbnail) {
+                    currentThumbnail.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center'
+                    });
+                }
+                }
+            }}
+            className="relative h-36 md:h-40 w-full max-w-md overflow-x-auto overflow-y-hidden"
+            >
+            <div className="flex gap-4 px-2 py-2 transition-transform duration-500 ease-in-out">
+                {media.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`flex-shrink-0 w-30 h-30 rounded-lg overflow-hidden transition-all duration-300 ${
+                      index === currentIndex
+                        ? 'opacity-100 scale-110'
+                        : 'opacity-50 hover:opacity-75 scale-100'
+                    }`}
+                  >
+                    {item.type === 'image' ? (
+                      <img
+                        src={item.src}
+                        alt={item.alt || `Thumbnail ${index + 1}`}
+                        className="w-full h-full object-contain"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center relative">
+                        <video
+                          src={item.src}
+                          className="w-full h-full object-contain"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="white"
+                            opacity="0.8"
+                          >
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                          </svg>
+                        </div>
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Navigation Bar */}
-        <div className="flex items-center justify-center gap-4 py-3">
+        <div className="flex items-center justify-between py-3 px-4 md:px-32">
           {/* Left Arrow */}
-          {media.length > 1 && (
+          {media.length > 1 ? (
             <button
               onClick={handlePrevious}
-              className="p-2 rounded-md transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/10"
+              className="flex-shrink-0 p-2 rounded-md transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/10"
               style={{ color: 'var(--text-primary)' }}
               aria-label="Previous"
             >
@@ -80,12 +143,14 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
                 <polyline points="15 18 9 12 15 6" />
               </svg>
             </button>
+          ) : (
+            <div className="flex-shrink-0 w-9"></div>
           )}
 
           {/* Subtitle / Counter */}
-          <div className="text-center px-4">
+          <div className="absolute left-1/2 -translate-x-1/2 text-center px-4 max-w-lg">
             {currentMedia.subtitle && (
-              <p className="font-['Rubik'] text-sm font-medium mb-1" style={{ color: 'var(--text-primary)' }}>
+              <p className="font-['Rubik'] text-sm font-medium mb-1 break-words" style={{ color: 'var(--text-primary)' }}>
                 {currentMedia.subtitle}
               </p>
             )}
@@ -95,10 +160,10 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
           </div>
 
           {/* Right Arrow */}
-          {media.length > 1 && (
+          {media.length > 1 ? (
             <button
               onClick={handleNext}
-              className="p-2 rounded-md transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/10"
+              className="flex-shrink-0 p-2 rounded-md transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/10"
               style={{ color: 'var(--text-primary)' }}
               aria-label="Next"
             >
@@ -116,6 +181,8 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
                 <polyline points="9 18 15 12 9 6" />
               </svg>
             </button>
+          ) : (
+            <div className="flex-shrink-0 w-9"></div>
           )}
         </div>
       </div>

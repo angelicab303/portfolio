@@ -98,7 +98,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
             </div>
 
             {/* Right/Left side - MiniGallery (60% desktop, 100% mobile) */}
-            <div className="flex flex-col justify-end" style={{ flex: isMobile ? '1 1 100%' : '0 0 60%' }}>
+            <div className="flex flex-col justify-top" style={{ flex: isMobile ? '1 1 100%' : '0 0 60%' }}>
               {media && media.length > 0 && <MiniGallery media={media} reversed={reversed} />}
             </div>
           </div>

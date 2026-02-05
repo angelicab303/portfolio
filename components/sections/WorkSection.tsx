@@ -32,6 +32,23 @@ const WorkSection: React.FC = () => {
           alt: 'Agent Portal',
           subtitle: 'Agent Onboarding Portal'
         },
+        {
+          src: '/images/PushFiDark.png',
+          type: 'image' as const,
+          alt: 'Agent Portal',
+          subtitle: 'Agent Onboarding Portal'
+        },
+        {
+          src: '/images/PushFiDark.png',
+          type: 'image' as const,
+          alt: 'Agent Portal',
+          subtitle: 'Agent Onboarding Portal'
+        },
+        
+        
+        
+        
+        
         // {
         //   src: '/videos/PushFiDemo.mp4',
         //   type: 'video' as const,
