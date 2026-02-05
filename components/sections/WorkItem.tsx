@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react';
+import MiniGallery from '../ui/MiniGallery';
 
 interface WorkItemProps {
   title: string;
@@ -10,6 +11,12 @@ interface WorkItemProps {
   description: string;
   keyResponsibilities?: string[];
   technologies?: string[];
+  media?: Array<{
+    src: string;
+    alt?: string;
+    type: 'image' | 'video';
+    subtitle?: string;
+  }>;
   imageSrc?: string;
   imageAlt?: string;
   reversed?: boolean;
@@ -17,7 +24,21 @@ interface WorkItemProps {
   onSeeMore?: () => void;
 }
 
-const WorkItem: React.FC<WorkItemProps> = ({ title, subtitle, positions, date, description, keyResponsibilities, technologies, imageSrc, imageAlt = 'Work image', reversed = false, isFirst = false, onSeeMore }) => {
+const WorkItem: React.FC<WorkItemProps> = ({ 
+  title, 
+  subtitle, 
+  positions, 
+  date, 
+  description, 
+  keyResponsibilities, 
+  technologies, 
+  media,
+  imageSrc, 
+  imageAlt = 'Work image', 
+  reversed = false, 
+  isFirst = false, 
+  onSeeMore 
+}) => {
   const [isMobile, setIsMobile] = React.useState(false);
 
   React.useEffect(() => {
@@ -76,17 +97,9 @@ const WorkItem: React.FC<WorkItemProps> = ({ title, subtitle, positions, date, d
               </button>
             </div>
 
-            {/* Right/Left side - Image (60% desktop, 100% mobile) */}
-            <div className="flex items-center justify-center p-0" style={{ flex: isMobile ? '1 1 100%' : '0 0 60%' }}>
-              {imageSrc ? (
-                <div className="w-full rounded-lg overflow-hidden flex items-center justify-center transition-shadow duration-300" style={{ height: isMobile ? '300px' : '500px', backgroundColor: 'var(--bg-secondary)', boxShadow: '0 4px 12px var(--card-shadow)' }}>
-                  <img src={imageSrc} alt={imageAlt} className="w-full h-full object-contain block" />
-                </div>
-              ) : (
-                <div className="w-full rounded-lg flex items-center justify-center border-2 border-dashed transition-colors duration-300" style={{ height: isMobile ? '300px' : '500px', backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--accent-border)' }}>
-                  <span className="text-[1.2rem] font-medium opacity-50" style={{ color: 'var(--text-secondary)' }}>Image</span>
-                </div>
-              )}
+            {/* Right/Left side - MiniGallery (60% desktop, 100% mobile) */}
+            <div className="flex flex-col justify-end" style={{ flex: isMobile ? '1 1 100%' : '0 0 60%' }}>
+              {media && media.length > 0 && <MiniGallery media={media} reversed={reversed} />}
             </div>
           </div>
         </div>

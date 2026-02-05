@@ -18,8 +18,26 @@ const WorkSection: React.FC = () => {
         'Solo developer responsible for front-end, back-end, and database architecture'
       ],
       technologies: ['React', 'Next.js', 'TypeScript', 'AWS S3', 'MongoDB', 'Tailwind CSS', 'Postman'],
-      imageSrc: '/images/PushFiLight.png',
-      imageAlt: 'PushFi Screenshot'
+      media: [
+        {
+          src: '/images/PushFiLight.png',
+          type: 'image' as const,
+          alt: 'PushFi Dashboard',
+          subtitle: 'Main Dashboard'
+        },
+        // Add more images/videos here as needed
+        {
+          src: '/images/PushFiDark.png',
+          type: 'image' as const,
+          alt: 'Agent Portal',
+          subtitle: 'Agent Onboarding Portal'
+        },
+        // {
+        //   src: '/videos/PushFiDemo.mp4',
+        //   type: 'video' as const,
+        //   subtitle: 'Platform Demo'
+        // }
+      ]
     },
     {
       title: 'Simulacrum',
@@ -28,8 +46,14 @@ const WorkSection: React.FC = () => {
       date: 'Sep 2025 - Dec 2025',
       description: 'Nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Morbi quis commodo odio aenean sed adipiscing diam. Vitae purus faucibus ornare suspendisse sed. Vitae congue mauris rhoncus aenean vel. Ut ornare lectus sit amet est placerat in. Congue quisque egestas diam in.',
       technologies: ['Python', 'FastAPI', 'React', 'MongoDB'],
-      imageSrc: '/images/SimulacrumLanding.png',
-      imageAlt: 'Simulacrum screenshot'
+      media: [
+        {
+          src: '/images/SimulacrumLanding.png',
+          type: 'image' as const,
+          alt: 'Simulacrum Landing Page',
+          subtitle: 'Landing Page'
+        }
+      ]
     }
   ];
 
@@ -45,10 +69,10 @@ const WorkSection: React.FC = () => {
           description={work.description}
           keyResponsibilities={work.keyResponsibilities}
           technologies={work.technologies}
-          imageSrc={work.imageSrc}
-          imageAlt={work.imageAlt}
+          media={work.media}
           reversed={index % 2 !== 0}
           isFirst={index === 0}
+          onSeeMore={() => console.log(`See more for ${work.title}`)}
         />
       ))}
     </>
