@@ -12,10 +12,10 @@ interface WorkItemProps {
   keyResponsibilities?: string[];
   technologies?: string[];
   teamSize?: string;
-  link?: {
+  link?: Array<{
     url: string;
     label: string;
-  };
+  }>;
   media?: Array<{
     src: string;
     alt?: string;
@@ -114,19 +114,24 @@ const WorkItem: React.FC<WorkItemProps> = ({
                 </div>
               )}
               
-              {link && (
+              {link && link.length > 0 && (
                 <div className="mb-[15px]">
-                  <p className="font-['Rubik'] text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                    <strong>{link.label}:</strong>{' '}
-                    <a 
-                      href={link.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="transition-colors duration-300 hover:underline"
-                      style={{ color: 'var(--accent-primary)' }}
-                    >
-                      {link.url}
-                    </a>
+                  <p className="font-['Rubik'] text-base mb-[5px] leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                    <strong>Links:</strong>{' '}
+                    {link.map((l, i) => (
+                      <React.Fragment key={i}>
+                        <a
+                          href={l.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="transition-colors duration-300 hover:underline"
+                          style={{ color: 'var(--accent-primary)' }}
+                        >
+                          {l.label}
+                        </a>
+                        {i < link.length - 1 && ', '}
+                      </React.Fragment>
+                    ))}
                   </p>
                 </div>
               )}

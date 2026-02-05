@@ -22,22 +22,16 @@ const WorkSection: React.FC = () => {
       technologies: ['React', 'Next.js', 'TypeScript', 'AWS S3', 'MongoDB', 'Tailwind CSS', 'Postman'],
       media: [
         {
+          src: '/videos/PushFi_Landing_Loop.mov',
+          type: 'video' as const,
+          alt: 'PushFi Landing Page',
+          subtitle: 'PushFi Landing page'
+        },
+        {
           src: '/images/PushFiLight.png',
           type: 'image' as const,
           alt: 'PushFi Dashboard',
           subtitle: 'Main Dashboard'
-        },
-        {
-          src: '/images/PushFiDark.png',
-          type: 'image' as const,
-          alt: 'Agent Portal',
-          subtitle: 'Agent Onboarding Portal'
-        },
-        {
-          src: '/images/PushFiDark.png',
-          type: 'image' as const,
-          alt: 'Agent Portal',
-          subtitle: 'Agent Onboarding Portal'
         },
         {
           src: '/images/PushFiDark.png',
@@ -55,10 +49,10 @@ const WorkSection: React.FC = () => {
       date: 'Sep 2025 - Dec 2025',
       description: 'Contributed to an AI-powered forecasting platform during a Cornell Tech Runway accelerator program. Worked on full-stack development, implementing features for market prediction visualization and data analysis.',
       technologies: ['Python', 'FastAPI', 'React', 'MongoDB'],
-      link: {
+      link: [{
         url: 'https://tech.cornell.edu/built/simulacrum/',
-        label: 'Link'
-      },
+        label: 'Cornell Tech Runway Page'
+      },],
       media: [
         {
           src: '/videos/Simulacrum_LandingPage_Animation_Showcase.mov',

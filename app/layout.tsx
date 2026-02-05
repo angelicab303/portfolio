@@ -1,6 +1,10 @@
 import { ThemeProvider } from './contexts/ThemeContext';
 import './globals.css';
 
+export const metadata = {
+  title: 'Angelica Borowy Portfolio',
+};
+
 export default function RootLayout({
   children,
 }: {

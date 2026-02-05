@@ -29,12 +29,12 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
 
   const handlePrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? media.length - 1 : prev - 1));
-    setVideoTime(0); // Reset time when changing videos
+    setVideoTime(0);
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === media.length - 1 ? 0 : prev + 1));
-    setVideoTime(0); // Reset time when changing videos
+    setVideoTime(0);
   };
 
   const handleOpenModal = () => {
@@ -71,7 +71,8 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
             <img
               src={currentMedia.src}
               alt={currentMedia.alt || `Gallery image ${currentIndex + 1}`}
-              className="w-full shadow-lg rounded-lg cursor-pointer"
+              className="w-full shadow-lg rounded-lg cursor-pointer object-contain"
+              style={{ maxHeight: '500px' }}
               onClick={handleOpenModal}
             />
           ) : (
@@ -83,8 +84,8 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
               loop
               muted
               playsInline
-              className="w-full shadow-lg rounded-lg cursor-pointer"
-              onClick={handleOpenModal}
+              className="w-full shadow-lg rounded-lg object-contain"
+              style={{ maxHeight: '500px' }}
             >
               Your browser does not support the video tag.
             </video>
