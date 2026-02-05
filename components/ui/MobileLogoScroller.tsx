@@ -28,7 +28,7 @@ const MobileLogoScroller: React.FC = () => {
     { id: 9, iconClass: 'devicon-express-original-wordmark', name: 'Express' },
     { id: 10, iconClass: 'devicon-fastapi-plain-wordmark colored', name: 'FastAPI' },
     { id: 11, iconClass: 'devicon-postgresql-plain-wordmark colored', name: 'PostgreSQL' },
-    { id: 12, iconClass: 'devicon-mysql-plain-wordmark colored', name: 'MySQL' },
+    // { id: 12, iconClass: 'devicon-mysql-plain-wordmark colored', name: 'MySQL' },
     { id: 13, iconClass: 'devicon-mongodb-plain-wordmark colored', name: 'MongoDB' },
     { id: 14, iconClass: 'devicon-firebase-plain-wordmark colored', name: 'Firebase' },
     { id: 15, iconClass: 'devicon-amazonwebservices-plain-wordmark colored', name: 'AWS' },

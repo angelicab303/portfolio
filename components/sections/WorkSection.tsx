@@ -2,6 +2,8 @@
 
 import React from 'react';
 import WorkItem from './WorkItem';
+import PushFiReadMore from '../work-details/PushFiReadMore';
+import SimulacrumReadMore from '../work-details/SimulacrumReadMore';
 
 const WorkSection: React.FC = () => {
   const workExperiences = [
@@ -25,7 +27,6 @@ const WorkSection: React.FC = () => {
           alt: 'PushFi Dashboard',
           subtitle: 'Main Dashboard'
         },
-        // Add more images/videos here as needed
         {
           src: '/images/PushFiDark.png',
           type: 'image' as const,
@@ -44,24 +45,15 @@ const WorkSection: React.FC = () => {
           alt: 'Agent Portal',
           subtitle: 'Agent Onboarding Portal'
         },
-        
-        
-        
-        
-        
-        // {
-        //   src: '/videos/PushFiDemo.mp4',
-        //   type: 'video' as const,
-        //   subtitle: 'Platform Demo'
-        // }
-      ]
+      ],
+      readMoreContent: <PushFiReadMore />
     },
     {
       title: 'Simulacrum',
       subtitle: 'AI Forecasting Service | Cornell Tech Runway Startup', 
       positions: ['Full Stack Developer Intern', 'Part-Time'],
       date: 'Sep 2025 - Dec 2025',
-      description: 'Nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Morbi quis commodo odio aenean sed adipiscing diam. Vitae purus faucibus ornare suspendisse sed. Vitae congue mauris rhoncus aenean vel. Ut ornare lectus sit amet est placerat in. Congue quisque egestas diam in.',
+      description: 'Contributed to an AI-powered forecasting platform during a Cornell Tech Runway accelerator program. Worked on full-stack development, implementing features for market prediction visualization and data analysis.',
       technologies: ['Python', 'FastAPI', 'React', 'MongoDB'],
       media: [
         {
@@ -70,7 +62,8 @@ const WorkSection: React.FC = () => {
           alt: 'Simulacrum Landing Page',
           subtitle: 'Landing Page'
         }
-      ]
+      ],
+      readMoreContent: <SimulacrumReadMore />
     }
   ];
 
@@ -89,7 +82,7 @@ const WorkSection: React.FC = () => {
           media={work.media}
           reversed={index % 2 !== 0}
           isFirst={index === 0}
-          onSeeMore={() => console.log(`See more for ${work.title}`)}
+          readMoreContent={work.readMoreContent}
         />
       ))}
     </>

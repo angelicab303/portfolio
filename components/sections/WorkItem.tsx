@@ -22,6 +22,7 @@ interface WorkItemProps {
   reversed?: boolean;
   isFirst?: boolean;
   onSeeMore?: () => void;
+  readMoreContent?: React.ReactNode;
 }
 
 const WorkItem: React.FC<WorkItemProps> = ({ 
@@ -37,9 +38,11 @@ const WorkItem: React.FC<WorkItemProps> = ({
   imageAlt = 'Work image', 
   reversed = false, 
   isFirst = false, 
-  onSeeMore 
+  onSeeMore,
+  readMoreContent
 }) => {
   const [isMobile, setIsMobile] = React.useState(false);
+  const [isExpanded, setIsExpanded] = React.useState(false);
 
   React.useEffect(() => {
     const checkMobile = () => {
@@ -92,9 +95,23 @@ const WorkItem: React.FC<WorkItemProps> = ({
                 </div>
               )}
               
-              <button onClick={onSeeMore} className="self-start py-3 px-[30px] bg-transparent rounded-lg font-['Rubik'] text-base font-medium cursor-pointer transition-all duration-300 mt-auto border-2 hover:-translate-y-0.5" style={{ color: 'var(--accent-primary)', borderColor: 'var(--accent-primary)' }}>
-                See more
-              </button>
+              {readMoreContent && (
+                <button 
+                  onClick={() => setIsExpanded(!isExpanded)} 
+                  className="self-start py-3 px-[30px] bg-transparent rounded-lg font-['Rubik'] text-base font-medium cursor-pointer transition-all duration-300 mt-auto border-2 hover:-translate-y-0.5 flex items-center gap-2" 
+                  style={{ color: 'var(--accent-primary)', borderColor: 'var(--accent-primary)' }}
+                >
+                  Read More
+                  <svg 
+                    className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              )}
             </div>
 
             {/* Right/Left side - MiniGallery (60% desktop, 100% mobile) */}
@@ -102,6 +119,26 @@ const WorkItem: React.FC<WorkItemProps> = ({
               {media && media.length > 0 && <MiniGallery media={media} reversed={reversed} />}
             </div>
           </div>
+
+          {/* Expandable Details Section - Full Width */}
+          {readMoreContent && (
+            <div 
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                isExpanded ? 'max-h-[600px] opacity-100 mt-10' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div 
+                className="rounded-2xl p-6 overflow-y-auto"
+                style={{ 
+                  backgroundColor: 'var(--bg-tertiary)',
+                  maxHeight: '500px',
+                  border: '1px solid var(--accent-border)'
+                }}
+              >
+                {readMoreContent}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>

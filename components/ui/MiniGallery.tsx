@@ -36,7 +36,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
     <>
       <div className="flex flex-col w-full relative">
         {/* Media Display Area */}
-        <div className="flex justify-center overflow-visible mb-4 p-4 -mx-4 md:mx-0 md:p-4">
+        <div className="flex justify-center overflow-visible mb-4 p-4 -mx-4 md:mx-0 md:p-4 relative group">
           {currentMedia.type === 'image' ? (
             <img
               src={currentMedia.src}
@@ -54,6 +54,59 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
               Your browser does not support the video tag.
             </video>
           )}
+          
+          {/* Expand Button Overlay */}
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="absolute top-6 right-6 md:top-8 md:right-8 p-2.5 rounded-full bg-black/50 hover:bg-black/70 transition-all duration-200 opacity-0 group-hover:opacity-100 z-10"
+            style={{ color: 'white' }}
+            aria-label="Expand to fullscreen"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="15 3 21 3 21 9" />
+              <polyline points="9 21 3 21 3 15" />
+              <line x1="21" y1="3" x2="14" y2="10" />
+              <line x1="3" y1="21" x2="10" y2="14" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Expand Button - Always Visible */}
+        <div className="flex justify-end -mt-4 px-4 md:px-4">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/10 opacity-70"
+            style={{ color: 'var(--text-primary)' }}
+            aria-label="View fullscreen"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="15 3 21 3 21 9" />
+              <polyline points="9 21 3 21 3 15" />
+              <line x1="21" y1="3" x2="14" y2="10" />
+              <line x1="3" y1="21" x2="10" y2="14" />
+            </svg>
+            <span className="font-['Rubik'] text-xs">View fullscreen</span>
+          </button>
         </div>
 
         {/* Thumbnail Preview Strip - Only show if more than 1 media item */}
@@ -193,29 +246,30 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-4"
           onClick={() => setIsModalOpen(false)}
         >
-          <div className="relative max-w-7xl w-full flex flex-col items-center justify-center gap-2 md:gap-4">
-            {/* Close Button */}
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute -top-12 md:-top-16 right-0 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200"
-              style={{ color: 'white' }}
-              aria-label="Close"
+          {/* Close Button - Fixed to viewport */}
+          <button
+            onClick={() => setIsModalOpen(false)}
+            className="fixed top-4 right-4 md:top-8 md:right-8 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200 z-10"
+            style={{ color: 'white' }}
+            aria-label="Close"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+
+          <div className="relative max-w-7xl w-full flex flex-col items-center justify-center gap-2 md:gap-4 mt-12 md:mt-16">
 
             {/* Modal Media */}
             <div className="flex items-center justify-center w-full" onClick={(e) => e.stopPropagation()}>
@@ -223,13 +277,15 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
                 <img
                   src={currentMedia.src}
                   alt={currentMedia.alt || `Gallery image ${currentIndex + 1}`}
-                  className="max-w-full md:max-w-4xl max-h-[60vh] md:max-h-[70vh] object-contain"
+                  className="max-w-full max-h-[75vh] md:max-h-[80vh] object-contain"
+                  style={{ maxWidth: '90vw' }}
                 />
               ) : (
                 <video
                   src={currentMedia.src}
                   controls
-                  className="max-w-full md:max-w-4xl max-h-[60vh] md:max-h-[70vh] object-contain"
+                  className="max-w-full max-h-[75vh] md:max-h-[80vh] object-contain"
+                  style={{ maxWidth: '90vw' }}
                 >
                   Your browser does not support the video tag.
                 </video>
