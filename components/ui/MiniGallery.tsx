@@ -17,20 +17,50 @@ interface MiniGalleryProps {
 const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [videoTime, setVideoTime] = useState(0);
+  const mainVideoRef = React.useRef<HTMLVideoElement>(null);
+  const modalVideoRef = React.useRef<HTMLVideoElement>(null);
 
   if (!media || media.length === 0) {
     return null;
   }
 
+  const currentMedia = media[currentIndex];
+
   const handlePrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? media.length - 1 : prev - 1));
+    setVideoTime(0); // Reset time when changing videos
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === media.length - 1 ? 0 : prev + 1));
+    setVideoTime(0); // Reset time when changing videos
   };
 
-  const currentMedia = media[currentIndex];
+  const handleOpenModal = () => {
+    if (mainVideoRef.current && currentMedia.type === 'video') {
+      setVideoTime(mainVideoRef.current.currentTime);
+    }
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    if (modalVideoRef.current && currentMedia.type === 'video') {
+      setVideoTime(modalVideoRef.current.currentTime);
+    }
+    setIsModalOpen(false);
+  };
+
+  // Sync video time when switching between main and modal
+  React.useEffect(() => {
+    if (currentMedia.type === 'video') {
+      if (isModalOpen && modalVideoRef.current) {
+        modalVideoRef.current.currentTime = videoTime;
+      } else if (!isModalOpen && mainVideoRef.current) {
+        mainVideoRef.current.currentTime = videoTime;
+      }
+    }
+  }, [isModalOpen, currentMedia.type, videoTime]);
 
   return (
     <>
@@ -42,14 +72,19 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
               src={currentMedia.src}
               alt={currentMedia.alt || `Gallery image ${currentIndex + 1}`}
               className="w-full shadow-lg rounded-lg cursor-pointer"
-              onClick={() => setIsModalOpen(true)}
+              onClick={handleOpenModal}
             />
           ) : (
             <video
+              ref={mainVideoRef}
               src={currentMedia.src}
               controls
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full shadow-lg rounded-lg cursor-pointer"
-              onClick={() => setIsModalOpen(true)}
+              onClick={handleOpenModal}
             >
               Your browser does not support the video tag.
             </video>
@@ -57,7 +92,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
           
           {/* Expand Button Overlay */}
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={handleOpenModal}
             className="absolute top-6 right-6 md:top-8 md:right-8 p-2.5 rounded-full bg-black/50 hover:bg-black/70 transition-all duration-200 opacity-0 group-hover:opacity-100 z-10"
             style={{ color: 'white' }}
             aria-label="Expand to fullscreen"
@@ -84,7 +119,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
         {/* Expand Button - Always Visible */}
         <div className="flex justify-end -mt-4 px-4 md:px-4">
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={handleOpenModal}
             className="flex items-center gap-2 px-4 py-2 rounded-md transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/10 opacity-70"
             style={{ color: 'var(--text-primary)' }}
             aria-label="View fullscreen"
@@ -244,11 +279,11 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
       {isModalOpen && (
         <div 
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-4"
-          onClick={() => setIsModalOpen(false)}
+          onClick={handleCloseModal}
         >
           {/* Close Button - Fixed to viewport */}
           <button
-            onClick={() => setIsModalOpen(false)}
+            onClick={handleCloseModal}
             className="fixed top-4 right-4 md:top-8 md:right-8 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200 z-10"
             style={{ color: 'white' }}
             aria-label="Close"
@@ -282,8 +317,13 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
                 />
               ) : (
                 <video
+                  ref={modalVideoRef}
                   src={currentMedia.src}
                   controls
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="max-w-full max-h-[75vh] md:max-h-[80vh] object-contain"
                   style={{ maxWidth: '90vw' }}
                 >

@@ -55,12 +55,17 @@ const WorkSection: React.FC = () => {
       date: 'Sep 2025 - Dec 2025',
       description: 'Contributed to an AI-powered forecasting platform during a Cornell Tech Runway accelerator program. Worked on full-stack development, implementing features for market prediction visualization and data analysis.',
       technologies: ['Python', 'FastAPI', 'React', 'MongoDB'],
+      link: {
+        url: 'https://tech.cornell.edu/built/simulacrum/',
+        label: 'Link'
+      },
       media: [
         {
-          src: '/images/SimulacrumLanding.png',
-          type: 'image' as const,
+          src: '/videos/Simulacrum_LandingPage_Animation_Showcase.mov',
+        //   src: '/videos/Fury_Level_UIs.mov',
+          type: 'video' as const,
           alt: 'Simulacrum Landing Page',
-          subtitle: 'Landing Page'
+          subtitle: 'Interactive Landing Page'
         }
       ],
       readMoreContent: <SimulacrumReadMore />
@@ -79,6 +84,7 @@ const WorkSection: React.FC = () => {
           description={work.description}
           keyResponsibilities={work.keyResponsibilities}
           technologies={work.technologies}
+          link={work.link}
           media={work.media}
           reversed={index % 2 !== 0}
           isFirst={index === 0}

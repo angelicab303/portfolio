@@ -7,10 +7,14 @@ interface WorkItemProps {
   title: string;
   subtitle?: string;
   positions: string[];
-  date: string;
+  date?: string;
   description: string;
   keyResponsibilities?: string[];
   technologies?: string[];
+  link?: {
+    url: string;
+    label: string;
+  };
   media?: Array<{
     src: string;
     alt?: string;
@@ -32,7 +36,8 @@ const WorkItem: React.FC<WorkItemProps> = ({
   date, 
   description, 
   keyResponsibilities, 
-  technologies, 
+  technologies,
+  link,
   media,
   imageSrc, 
   imageAlt = 'Work image', 
@@ -80,9 +85,11 @@ const WorkItem: React.FC<WorkItemProps> = ({
               <h4 className="font-['Rubik'] text-[1.3rem] font-semibold mb-[15px] mt-2.5" style={{ color: 'var(--text-primary-90)' }}>
                 {positions.join(' | ')}
               </h4>
-              <p className="font-['Rubik'] text-base mb-[15px] leading-relaxed italic" style={{ color: 'var(--text-secondary)' }}>
-                {date}
-              </p>
+              {date && (
+                <p className="font-['Rubik'] text-base mb-[15px] leading-relaxed italic" style={{ color: 'var(--text-secondary)' }}>
+                  {date}
+                </p>
+              )}
               <p className="font-['Rubik'] text-base mb-5 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 {description}
               </p>
@@ -91,6 +98,23 @@ const WorkItem: React.FC<WorkItemProps> = ({
                 <div className="mt-[15px] mb-[15px]">
                   <p className="font-['Rubik'] text-base mb-[5px] leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     <strong>Technologies used:</strong> {technologies.join(', ')}
+                  </p>
+                </div>
+              )}
+              
+              {link && (
+                <div className="mb-[15px]">
+                  <p className="font-['Rubik'] text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                    <strong>{link.label}:</strong>{' '}
+                    <a 
+                      href={link.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="transition-colors duration-300 hover:underline"
+                      style={{ color: 'var(--accent-primary)' }}
+                    >
+                      {link.url}
+                    </a>
                   </p>
                 </div>
               )}
