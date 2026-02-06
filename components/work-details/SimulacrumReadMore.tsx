@@ -10,7 +10,8 @@ const SimulacrumReadMore: React.FC = () => {
       {/* Tab Navigation - Fixed header */}
       <div style={{ 
         flexShrink: 0,
-        borderBottom: '1px solid var(--text-secondary)'
+        borderBottom: '1px solid var(--text-secondary)',
+        display: 'flex'
       }}>
         <button
           onClick={() => setActiveTab('overview')}
@@ -19,7 +20,11 @@ const SimulacrumReadMore: React.FC = () => {
           }`}
           style={{
             color: activeTab === 'overview' ? 'var(--text-primary)' : 'var(--text-secondary)',
-            borderColor: activeTab === 'overview' ? 'var(--text-primary)' : 'transparent'
+            borderColor: activeTab === 'overview' ? 'var(--text-primary)' : 'transparent',
+            flex: '1',
+            textAlign: 'center',
+            whiteSpace: 'normal',
+            lineHeight: '1.2'
           }}
         >
           Overview
@@ -31,7 +36,11 @@ const SimulacrumReadMore: React.FC = () => {
           }`}
           style={{
             color: activeTab === 'features' ? 'var(--text-primary)' : 'var(--text-secondary)',
-            borderColor: activeTab === 'features' ? 'var(--text-primary)' : 'transparent'
+            borderColor: activeTab === 'features' ? 'var(--text-primary)' : 'transparent',
+            flex: '1',
+            textAlign: 'center',
+            whiteSpace: 'normal',
+            lineHeight: '1.2'
           }}
         >
           Feature Overview

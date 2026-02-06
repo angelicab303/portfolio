@@ -42,14 +42,14 @@ const MobileLogoScroller: React.FC = () => {
     { id: 23, iconClass: 'devicon-blender-original-wordmark colored', name: 'Blender' },
   ];
 
-  const iconSize = '60px';
-  const iconFontSize = '45px';
+  const iconSize = '100px';
+  const iconFontSize = '70px';
 
   return (
-    <div className="relative w-full h-[120px] overflow-hidden z-[4] flex items-center transition-colors duration-300" style={{ backgroundColor: 'var(--bg-hero)' }}>
+    <div className="relative w-full h-[170px] overflow-hidden z-[4] -mt-22 flex items-center transition-colors duration-300" style={{ backgroundColor: 'var(--bg-hero)' }}>
       <Marquee speed={50} gradient={false} pauseOnHover={false}>
         {logos.map((logo, index) => (
-          <div key={index} className="mr-[15px] rounded-lg flex-shrink-0 flex items-center justify-center p-2 cursor-pointer relative transition-all duration-300" style={{ width: iconSize, height: iconSize, minWidth: iconSize, minHeight: iconSize, backgroundColor: 'var(--icon-bg)', boxShadow: '0 2px 4px var(--card-shadow)' }}>
+          <div key={index} className="mr-[15px] mb-4 rounded-lg flex-shrink-0 flex items-center justify-center p-2 cursor-pointer relative transition-all duration-300" style={{ width: iconSize, height: iconSize, minWidth: iconSize, minHeight: iconSize, backgroundColor: 'var(--icon-bg)', boxShadow: '0 2px 4px var(--card-shadow)' }}>
             <i className={logo.iconClass} style={{ fontSize: iconFontSize, display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
             <div className="absolute top-0 left-0 w-full h-full rounded-lg transition-opacity duration-300 pointer-events-none" style={{ backgroundColor: 'var(--icon-overlay)' }} />
           </div>

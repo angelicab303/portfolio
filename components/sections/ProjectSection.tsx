@@ -192,7 +192,7 @@ const ProjectSection: React.FC = () => {
           reversed={index % 2 !== 0}
           isFirst={index === 0}
           readMoreContent={project.readMoreContent}
-          sectionTitle={index === 0 ? "Featured Projects" : undefined}
+          sectionTitle={index === 0 ? "Featured Team Projects" : undefined}
         />
       ))}
     </>

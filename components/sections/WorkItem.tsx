@@ -76,7 +76,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
         <div className="max-w-[80vw] mx-auto px-[5%]">
           <div className={`flex gap-10 items-stretch ${isMobile ? 'flex-col' : reversed ? 'flex-row-reverse' : ''}`}>
             {/* Left/Right side - Text content (40% desktop, 100% mobile) */}
-            <div className="flex flex-col" style={{ flex: isMobile ? '1 1 100%' : '0 0 40%' }}>
+            <div className={`flex flex-col ${isMobile ? 'order-1' : ''}`} style={{ flex: isMobile ? '1 1 100%' : '0 0 40%' }}>
               <h2 className="font-['Rubik'] text-[2.0rem] font-medium mb-[15px]" style={{ color: 'var(--text-primary)' }}>
                 {title}
               </h2>
@@ -153,34 +153,55 @@ const WorkItem: React.FC<WorkItemProps> = ({
                   </svg>
                 </button>
               )}
+
+              {/* Expandable Details Section - Mobile only (inside text column) */}
+              {isMobile && readMoreContent && (
+                <div 
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    isExpanded ? 'max-h-[600px] opacity-100 mt-6' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div 
+                    className="rounded-2xl p-6"
+                    style={{ 
+                      backgroundColor: 'var(--bg-tertiary)',
+                      border: '1px solid var(--accent-border)',
+                      maxHeight: '600px',
+                      overflowY: 'auto'
+                    }}
+                  >
+                    {readMoreContent}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Right/Left side - MiniGallery (60% desktop, 100% mobile) */}
-            <div className="flex flex-col justify-top" style={{ flex: isMobile ? '1 1 100%' : '0 0 60%' }}>
+            <div className={`flex flex-col justify-top ${isMobile ? 'order-2' : ''}`} style={{ flex: isMobile ? '1 1 100%' : '0 0 60%' }}>
               {media && media.length > 0 && <MiniGallery media={media} reversed={reversed} />}
             </div>
           </div>
 
-          {/* Expandable Details Section - Full Width */}
-{readMoreContent && (
-  <div 
-    className={`overflow-hidden transition-all duration-500 ease-in-out ${
-      isExpanded ? 'max-h-[600px] opacity-100 mt-10' : 'max-h-0 opacity-0'
-    }`}
-  >
-    <div 
-      className="rounded-2xl p-6"
-      style={{ 
-        backgroundColor: 'var(--bg-tertiary)',
-        border: '1px solid var(--accent-border)',
-        maxHeight: '600px',
-        overflowY: 'auto'
-      }}
-    >
-      {readMoreContent}
-    </div>
-  </div>
-)}
+          {/* Expandable Details Section - Desktop only (Full Width) */}
+          {!isMobile && readMoreContent && (
+            <div 
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                isExpanded ? 'max-h-[600px] opacity-100 mt-10' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div 
+                className="rounded-2xl p-6"
+                style={{ 
+                  backgroundColor: 'var(--bg-tertiary)',
+                  border: '1px solid var(--accent-border)',
+                  maxHeight: '600px',
+                  overflowY: 'auto'
+                }}
+              >
+                {readMoreContent}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
