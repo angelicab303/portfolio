@@ -69,60 +69,6 @@ const ProjectSection: React.FC = () => {
       readMoreContent: <FuryReadMore />
     },
     {
-      title: 'Fury of the Lost Knight',
-      subtitle: 'Unity 2D Action Game | DGA @ Cornell Summer Team',
-      positions: ['Environment Lead', 'Game Programmer'],
-      date: 'Jul 2023 - Aug 2023',
-      description: 'A fast-paced 2D action game built in Unity featuring dynamic combat mechanics, procedural level generation, and a custom physics system. Designed and developed all gameplay systems, UI/UX, and visual effects.',
-      keyResponsibilities: [
-        'Implemented combat system with combo mechanics and hit detection',
-        'Designed and built custom level editor for rapid prototyping',
-        'Created particle effects and animation systems',
-        'Optimized performance for mobile platforms'
-      ],
-      teamSize: '12',
-      technologies: ['Unity', 'C#', 'Aseprite', 'Photoshop', 'Git'],
-      link: [
-        {
-          url: 'https://dgacornell.itch.io/fury-of-the-lost-knight',
-          label: 'itch.io'
-        }
-      ],
-      media: [
-        {
-          src: '/videos/Fury_Level_UIs.mov',
-          type: 'video' as const,
-          alt: 'Fury Gameplay',
-          subtitle: 'Level Select UI'
-        },
-        {
-          src: '/videos/Act1_Gameplay.mov',
-          type: 'video' as const,
-          alt: 'Fury Gameplay',
-          subtitle: 'Environment Interactions'
-        },
-        {
-          src: '/images/Act3_Full.png',
-          type: 'image' as const,
-          alt: 'Full UI Screenshot',
-          subtitle: ''
-        },
-        {
-          src: '/videos/Boss_Arena.mov',
-          type: 'video' as const,
-          alt: 'Fury Gameplay',
-          subtitle: 'Boss Arena Environment'
-        },
-        {
-          src: '/videos/Act3_Demo.mov',
-          type: 'video' as const,
-          alt: 'Fury Gameplay',
-          subtitle: 'Level Design & Gameplay'
-        },
-      ],
-      readMoreContent: <FuryReadMore />
-    },
-    {
       title: 'Grub Bug',
       subtitle: 'Unity 2D Delivery Game | DGA @ Cornell Project Team',
       positions: ['UI Lead'],
@@ -162,6 +108,66 @@ const ProjectSection: React.FC = () => {
           subtitle: 'Hotbar UI'
         },
       ],
+    },
+    {
+      title: 'Fury of the Lost Knight',
+      subtitle: 'Unity 2D Action Game | DGA @ Cornell Summer Team',
+      positions: ['Environment Lead', 'Game Programmer'],
+      date: 'Jul 2023 - Aug 2023',
+      description: 'A fast-paced 2D action game built in Unity featuring dynamic combat mechanics, procedural level generation, and a custom physics system. Designed and developed all gameplay systems, UI/UX, and visual effects.',
+      keyResponsibilities: [
+        'Implemented combat system with combo mechanics and hit detection',
+        'Designed and built custom level editor for rapid prototyping',
+        'Created particle effects and animation systems',
+        'Optimized performance for mobile platforms'
+      ],
+      teamSize: '12',
+      technologies: ['Unity', 'C#', 'Aseprite', 'Photoshop', 'Git'],
+      link: [
+        {
+          url: 'https://dgacornell.itch.io/fury-of-the-lost-knight',
+          label: 'itch.io'
+        }
+      ],
+      media: [
+        {
+          src: '/videos/Fury_Level_UIs.mov',
+          type: 'video' as const,
+          alt: 'Fury Gameplay',
+          subtitle: 'Level Select UI'
+        },
+        {
+          src: '/videos/Swamp_Level.mov',
+          type: 'video' as const,
+          alt: 'Fury Gameplay',
+          subtitle: 'Level Design & Environment Interactions'
+        },
+        {
+          src: '/videos/Act1_Gameplay.mov',
+          type: 'video' as const,
+          alt: 'Fury Gameplay',
+          subtitle: 'Environment Interactions'
+        },
+        {
+          src: '/videos/Boss_Arena.mov',
+          type: 'video' as const,
+          alt: 'Fury Gameplay',
+          subtitle: 'Boss Arena Environment'
+        },
+        {
+          src: '/videos/Act3_Demo.mov',
+          type: 'video' as const,
+          alt: 'Fury Gameplay',
+          subtitle: 'Level Design & Gameplay'
+        },
+        {
+          src: '/images/Act3_Full.png',
+          type: 'image' as const,
+          alt: 'Full UI Screenshot',
+          subtitle: ''
+        },
+      ],
+      readMoreContent: <FuryReadMore />
     },
     
   ];

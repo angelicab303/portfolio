@@ -12,7 +12,7 @@ const WorkSection: React.FC = () => {
       subtitle: 'Early Stage Fintech AI Startup', 
       positions: ['Full Stack Engineer', 'UI/UX Designer'],
       date: 'Sep 2025 - Current',
-      description: 'Owned the complete front-end redesign of a fintech lending platform. Developed critical features from the ground up, taking the platform from early prototype to beta-ready in 6 months. As one of two developers during this phase, I architected and implemented the entire user-facing platform, agent onboarding system, and built secure backend API with optimized database architecture.',
+      description: 'Owned the complete front-end redesign of a fintech lending platform. Developed critical features from the ground up, taking the platform from early prototype to beta-ready. As one of two developers during this phase, I architected and implemented the entire user-facing platform, agent onboarding system, and built secure backend API with optimized database architecture.',
       keyResponsibilities: [
         'Redesigned 100% of platform UI/UX for beta launch',
         'Built agent network and white-label branding features from scratch',

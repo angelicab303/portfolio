@@ -22,7 +22,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      const sections = ['about', 'work', 'projects', 'gallery'];
+      const sections = ['about', 'work', 'projects'];
       const scrollPosition = window.scrollY + 150;
 
       for (const sectionId of sections) {
@@ -97,7 +97,7 @@ const Header: React.FC = () => {
                   { id: 'about', label: 'About Me' },
                   { id: 'work', label: 'Work' },
                   { id: 'projects', label: 'Projects' },
-                  { id: 'gallery', label: 'Gallery' }
+                  // { id: 'gallery', label: 'Gallery' }
                 ].map(({ id, label }) => (
                   <button
                     key={id}
@@ -185,7 +185,7 @@ const Header: React.FC = () => {
               { id: 'about', label: 'About Me' },
               { id: 'work', label: 'Work' },
               { id: 'projects', label: 'Projects' },
-              { id: 'gallery', label: 'Gallery' }
+              // { id: 'gallery', label: 'Gallery' }
             ].map(({ id, label }, index) => (
               <button
                 key={id}
