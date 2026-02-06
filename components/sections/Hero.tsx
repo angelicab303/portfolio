@@ -73,6 +73,26 @@ const Hero: React.FC = () => {
               <Typewriter options={{ delay: 75 }} onInit={(typewriter) => { typewriter.typeString('Software Engineer. Full Stack & UI/UX Developer. Game Designer.').pauseFor(3000).start(); }} />
             </div>
             <SocialLinks links={socialLinks} iconSize={isMobile ? 24 : 28} gap={isMobile ? '1rem' : '1.5rem'} />
+            
+            {/* Headshot */}
+<div className="mt-6 flex justify-center">
+  <div 
+    className="overflow-hidden transition-shadow duration-300"
+    style={{
+      width: isMobile ? '80px' : '100px',
+      height: isMobile ? '80px' : '100px',
+      borderRadius: '50%',
+      border: '4px solid var(--bg-primary)',
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.5)'
+    }}
+  >
+    <img 
+      src="/images/ProfessionalPic.png" 
+      alt="Angelica Borowy" 
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
           </div>
         </div>
       </div>

@@ -31,13 +31,13 @@ const WorkSection: React.FC = () => {
           src: '/images/PushFiLight.png',
           type: 'image' as const,
           alt: 'PushFi Dashboard',
-          subtitle: 'Main Dashboard'
+          subtitle: 'Light Theme'
         },
         {
           src: '/images/PushFiDark.png',
           type: 'image' as const,
           alt: 'Agent Portal',
-          subtitle: 'Agent Onboarding Portal'
+          subtitle: 'Dark Theme'
         },
       ],
       readMoreContent: <PushFiReadMore />
@@ -47,8 +47,8 @@ const WorkSection: React.FC = () => {
       subtitle: 'AI Forecasting Service | Cornell Tech Runway Startup', 
       positions: ['Full Stack Developer Intern', 'Part-Time'],
       date: 'Sep 2025 - Dec 2025',
-      description: 'Contributed to an AI-powered forecasting platform during a Cornell Tech Runway accelerator program. Worked on full-stack development, implementing features for market prediction visualization and data analysis.',
-      technologies: ['Python', 'FastAPI', 'React', 'MongoDB'],
+      description: 'Interned at an AI-powered forecasting startup in the Cornell Tech Runway accelerator program. Created an interactive animation for forecasting visualization and developed full stack features for their web-app platform. Built custom Python package for improved development flow and created an optimized database to manage metadata queries for their internal training data website.',
+      technologies: ['React', 'TypeScript', 'Next.js', 'Python', 'FastAPI', 'React', 'Firebase', 'SQL', "Google Cloud Platform", 'Docker'],
       link: [{
         url: 'https://tech.cornell.edu/built/simulacrum/',
         label: 'Cornell Tech Runway Page'

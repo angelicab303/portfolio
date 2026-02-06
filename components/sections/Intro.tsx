@@ -17,14 +17,14 @@ const Introduction: React.FC = () => {
             Who I Am
           </h4>
           <p className="font-['Rubik'] text-base mb-5 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            I'm a software developer with a multifaceated background in project management, UI/UX design, entrepreneurship, and game development. Currently, I'm a founding full-stack developer and UI/UX designer at PushFi, an early-stage fintech AI startup. I graduated from Cornell University in 2025 with a B.A. in Computer Science and minors in Game Design and Creative Writing.
+            I'm a software and full stack developer with a background in project management, UI/UX design, entrepreneurship, and game development. Currently, I'm a full stack developer and UI/UX designer at PushFi, an early-stage fintech AI startup. I graduated from Cornell University in 2025 with a B.A. in Computer Science and minors in Game Design and Creative Writing.
           </p>
 
           <h4 className="font-['Rubik'] text-[1.3rem] font-semibold mb-[15px] mt-2.5" style={{ color: 'var(--text-primary-90)' }}>
             What I Do
           </h4>
           <p className="font-['Rubik'] text-base mb-5 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            I build production-ready applications while bridging engineering, design, and product strategy, translating between technical constraints and user needs to ship cohesive products.
+            I build applications and user interfaces while bridging engineering, design, and product management, translating between technical constraints and user needs to ship cohesive products.
           </p>
 
           <p className="font-['Rubik'] text-base mb-5 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -33,7 +33,7 @@ const Introduction: React.FC = () => {
         </div>
 
         <div className="flex-shrink-0 min-w-[280px]" style={{ flexBasis: '350px' }}>
-          <img src="/images/profile.jpg" alt="Angelica Borowy" className="w-full h-auto rounded-[20px] object-cover" />
+          {/* <img src="/images/profile.jpg" alt="Angelica Borowy" className="w-full h-auto rounded-[20px] object-cover" /> */}
         </div>
       </div>
     </div>

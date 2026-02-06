@@ -162,24 +162,25 @@ const WorkItem: React.FC<WorkItemProps> = ({
           </div>
 
           {/* Expandable Details Section - Full Width */}
-          {readMoreContent && (
-            <div 
-              className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                isExpanded ? 'max-h-[600px] opacity-100 mt-10' : 'max-h-0 opacity-0'
-              }`}
-            >
-              <div 
-                className="rounded-2xl p-6 overflow-y-auto"
-                style={{ 
-                  backgroundColor: 'var(--bg-tertiary)',
-                  maxHeight: '500px',
-                  border: '1px solid var(--accent-border)'
-                }}
-              >
-                {readMoreContent}
-              </div>
-            </div>
-          )}
+{readMoreContent && (
+  <div 
+    className={`overflow-hidden transition-all duration-500 ease-in-out ${
+      isExpanded ? 'max-h-[600px] opacity-100 mt-10' : 'max-h-0 opacity-0'
+    }`}
+  >
+    <div 
+      className="rounded-2xl p-6"
+      style={{ 
+        backgroundColor: 'var(--bg-tertiary)',
+        border: '1px solid var(--accent-border)',
+        maxHeight: '600px',
+        overflowY: 'auto'
+      }}
+    >
+      {readMoreContent}
+    </div>
+  </div>
+)}
         </div>
       </div>
     </>

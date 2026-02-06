@@ -2,7 +2,7 @@
 
 import React from 'react';
 import WorkItem from './WorkItem';
-import FuryReadMore from '../project-details/FuryReadMore';
+import FillerReadMore from '../project-details/FillerReadMore';
 
 const PersonalProjectSection: React.FC = () => {
   const projects = [
@@ -11,14 +11,14 @@ const PersonalProjectSection: React.FC = () => {
       subtitle: 'Unreal Engine 5 Interior Environment and Player Control Prototype',
       positions: ['Solo Developer'],
       date: 'June 2024 - July 2024',
-      description: 'A fast-paced 2D action game built in Unity featuring dynamic combat mechanics, procedural level generation, and a custom physics system. Designed and developed all gameplay systems, UI/UX, and visual effects. Winner of the 2025 GDIAC Judges Choice Award.',
+      description: 'Protyped an interactable horror-inspired environment in Unreal Engine 5. Developed to test immersive environment interactions and player movement/animation with a full-body first person model.',
       keyResponsibilities: [
         'Implemented combat system with combo mechanics and hit detection',
         'Designed and built custom level editor for rapid prototyping',
         'Created particle effects and animation systems',
         'Optimized performance for mobile platforms'
       ],
-      technologies: ['Unreal Engine', 'Blender', 'AccuRIG'],
+      technologies: ['Unreal Engine', 'C++', 'UE Blueprint Visual Scripting', 'Blender', 'AccuRIG'],
       media: [
         {
           src: '/videos/UnrealDemo.mp4',
@@ -27,14 +27,14 @@ const PersonalProjectSection: React.FC = () => {
           subtitle: 'Environment Interactions and First Person Animations'
         },
       ],
-      readMoreContent: <FuryReadMore />
+      readMoreContent: <FillerReadMore />,
     },
     {
       title: '3D Modeling Showcase',
       subtitle: 'Game Environments and Assets made in Blender',
       positions: [''],
       date: '',
-      description: 'A fast-paced 2D action game built in Unity featuring dynamic combat mechanics, procedural level generation, and a custom physics system. Designed and developed all gameplay systems, UI/UX, and visual effects. Winner of the 2025 GDIAC Judges Choice Award.',
+      description: 'A low-poly dungeon environment created in Blender. All assets individually modeled and organized into a modular system for efficient and scalable level construction.',
       keyResponsibilities: [
         'Implemented combat system with combo mechanics and hit detection',
         'Designed and built custom level editor for rapid prototyping',
