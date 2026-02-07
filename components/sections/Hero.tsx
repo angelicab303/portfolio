@@ -6,6 +6,7 @@ import LogoScroller from '@/components/ui/LogoScroller';
 import MobileLogoScroller from '@/components/ui/MobileLogoScroller';
 import SocialLinks from '@/components/ui/SocialLinks';
 import { useTheme } from '@/app/contexts/ThemeContext';
+import { asset } from '@/app/lib/asset';
 
 const Hero: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -60,7 +61,7 @@ const Hero: React.FC = () => {
         <div className="relative w-full max-w-[1600px] h-full mx-auto flex items-center justify-center z-[10]" style={{ flexDirection: 'column', padding: isMobile ? '80px 2.5%' : '0' }}>
           <div className="z-[2] rounded overflow-hidden transition-shadow duration-300" style={{ position: isMobile ? 'relative' : 'absolute', top: isMobile ? 'auto' : '50%', left: isMobile ? 'auto' : '50%', transform: isMobile ? 'none' : 'translate(-50%, -50%)', width: isMobile ? '100%' : imageWidth, maxWidth: isMobile ? '100%' : 'none', boxShadow: '4px 0 6px var(--card-shadow), -4px 0 6px var(--card-shadow)' }}>
             <div className="relative w-full" style={{ height: isMobile ? '70vh' : imageHeight }}>
-              <img src="/images/CornellBackdrop.jpg" alt="Cornell Campus" className="w-full h-full object-cover block" />
+              <img src={asset("/images/CornellBackdrop.jpg")} alt="Cornell Campus" className="w-full h-full object-cover block" />
               <div className="absolute top-0 left-0 w-full h-full backdrop-blur-0 transition-colors duration-300" style={{ background: theme === 'light' ? 'rgba(46, 46, 46, 0.3)' : 'rgba(15, 23, 42, 0.5)' }} />
             </div>
           </div>
@@ -87,7 +88,7 @@ const Hero: React.FC = () => {
     }}
   >
     <img 
-      src="/images/ProfessionalPic.png" 
+      src={asset("/images/ProfessionalPic.png")} 
       alt="Angelica Borowy" 
       className="w-full h-full object-cover"
     />

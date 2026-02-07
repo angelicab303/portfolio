@@ -1,5 +1,6 @@
 'use client'
 
+import { asset } from '@/app/lib/asset';
 import React, { useState } from 'react';
 
 interface MediaItem {
@@ -69,7 +70,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
         <div className="flex justify-center items-center overflow-visible mb-4 relative group">
           {currentMedia.type === 'image' ? (
             <img
-              src={currentMedia.src}
+              src={asset(currentMedia.src)}
               alt={currentMedia.alt || `Gallery image ${currentIndex + 1}`}
               className="shadow-lg rounded-lg cursor-pointer object-contain"
               style={{ maxHeight: '500px', maxWidth: '100%' }}
@@ -78,7 +79,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
           ) : (
             <video
               ref={mainVideoRef}
-              src={currentMedia.src}
+              src={asset(currentMedia.src)}
               controls
               autoPlay
               loop
@@ -177,14 +178,14 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
                   >
                     {item.type === 'image' ? (
                       <img
-                        src={item.src}
+                        src={asset(item.src)}
                         alt={item.alt || `Thumbnail ${index + 1}`}
                         className="w-full h-full object-cover"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center relative">
                         <video
-                          src={item.src}
+                          src={asset(item.src)}
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/30">
@@ -311,7 +312,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
             <div className="flex items-center justify-center w-full" onClick={(e) => e.stopPropagation()}>
               {currentMedia.type === 'image' ? (
                 <img
-                  src={currentMedia.src}
+                  src={asset(currentMedia.src)}
                   alt={currentMedia.alt || `Gallery image ${currentIndex + 1}`}
                   className="max-w-full max-h-[75vh] md:max-h-[80vh] object-contain"
                   style={{ maxWidth: '90vw' }}
@@ -319,7 +320,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
               ) : (
                 <video
                   ref={modalVideoRef}
-                  src={currentMedia.src}
+                  src={asset(currentMedia.src)}
                   controls
                   autoPlay
                   loop
