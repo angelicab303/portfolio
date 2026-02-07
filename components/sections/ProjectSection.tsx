@@ -12,7 +12,7 @@ const ProjectSection: React.FC = () => {
       subtitle: 'iOS & Android Mobile Party Game | CS 4152: Advanced Game Architecture - Cornell University',
       positions: ['Team Lead', 'Game Programmer', 'Network Engineer'],
       date: 'Jan 2025 - May 2025',
-      description: 'A mobile party platformer game built in Cornell’s CUGL game engine featuring competitive multiplayer gameplay and dynamic levels shaped by players placing traps or platforms. Managed a team of programmers and designers to create a production-ready game for the annual GDIAC showcase event with 400+ attendees. Winner of the 2025 GDIAC Judges Choice Award.',
+      description: 'A mobile party platformer game built in Cornell’s CUGL game engine where players take on the antics of mischevious sugar gliders. Players race against each other and can scheme to either sabatoge their gem-hunting opponents or build helpful paths to treasure. Managed a team of programmers and designers to create a production-ready game for the annual GDIAC showcase event with 400+ attendees. Winner of the 2025 GDIAC Judges Choice Award.',
       keyResponsibilities: [
         'Implemented combat system with combo mechanics and hit detection',
         'Designed and built custom level editor for rapid prototyping',
@@ -71,7 +71,7 @@ const ProjectSection: React.FC = () => {
     },
     {
       title: 'Grub Bug',
-      subtitle: 'Unity 2D Delivery Game | DGA @ Cornell Project Team',
+      subtitle: 'Unity 2D Delivery Game | DGA Project Team @ Cornell',
       positions: ['UI Lead'],
       date: 'Aug 2024 - May 2025',
       description: 'A fast-paced 2D game built in Unity featuring chaotic and evasive driving to deliver food orders to passing pedestrians. Oversaw design choices for the user experience and implemented the UI/UX components seen throughout main gameplay for tracking orders, cooking meals, and player navigation. ',
@@ -113,10 +113,10 @@ const ProjectSection: React.FC = () => {
     },
     {
       title: 'Fury of the Lost Knight',
-      subtitle: 'Unity 2D Action Game | DGA @ Cornell Summer Team',
+      subtitle: 'Unity 2D Action Game | DGA Summer Team @ Cornell ',
       positions: ['Environment Lead', 'Game Programmer'],
       date: 'Jul 2023 - Aug 2023',
-      description: 'A 2D platformer action game built in Unity featuring dynamic combat and enemies, immersive level environments, and a central storyline. Managed the environment subteam and developed player-environment interactions. Implemented visual effects and lighting through the Universal Rendering Pipeline, developed a custom wind shader for foliage, and was responsible for level design and building the level layouts.',
+      description: 'A fantasy 2D platformer action game built in Unity featuring dynamic combat and enemies, immersive level environments, and a central storyline. Managed the environment subteam and developed player-environment interactions. Implemented visual effects and lighting through the Universal Rendering Pipeline, developed a custom wind shader for foliage, and was responsible for level design and building the level layouts.',
       keyResponsibilities: [
         'Implemented combat system with combo mechanics and hit detection',
         'Designed and built custom level editor for rapid prototyping',

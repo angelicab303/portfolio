@@ -65,14 +65,14 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
   return (
     <>
       <div className="flex flex-col w-full relative">
-        {/* Media Display Area */}
-        <div className="flex justify-center overflow-visible mb-4 p-4 -mx-4 md:mx-0 md:p-4 relative group">
+        {/* Media Display Area - No background, centered content */}
+        <div className="flex justify-center items-center overflow-visible mb-4 relative group">
           {currentMedia.type === 'image' ? (
             <img
               src={currentMedia.src}
               alt={currentMedia.alt || `Gallery image ${currentIndex + 1}`}
-              className="w-full shadow-lg rounded-lg cursor-pointer object-contain"
-              style={{ maxHeight: '500px' }}
+              className="shadow-lg rounded-lg cursor-pointer object-contain"
+              style={{ maxHeight: '500px', maxWidth: '100%' }}
               onClick={handleOpenModal}
             />
           ) : (
@@ -84,8 +84,8 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
               loop
               muted
               playsInline
-              className="w-full shadow-lg rounded-lg object-contain"
-              style={{ maxHeight: '500px' }}
+              className="shadow-lg rounded-lg object-contain"
+              style={{ maxHeight: '500px', maxWidth: '100%' }}
             >
               Your browser does not support the video tag.
             </video>
@@ -94,7 +94,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
           {/* Expand Button Overlay */}
           <button
             onClick={handleOpenModal}
-            className="absolute top-6 right-6 md:top-8 md:right-8 p-2.5 rounded-full bg-black/50 hover:bg-black/70 transition-all duration-200 opacity-0 group-hover:opacity-100 z-10"
+            className="absolute top-2 right-2 md:top-4 md:right-4 p-2.5 rounded-full bg-black/50 hover:bg-black/70 transition-all duration-200 opacity-0 group-hover:opacity-100 z-10"
             style={{ color: 'white' }}
             aria-label="Expand to fullscreen"
           >
@@ -118,7 +118,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({ media, reversed = false }) =>
         </div>
 
         {/* Expand Button - Always Visible */}
-        <div className="flex justify-end -mt-4 px-4 md:px-4">
+        <div className="flex justify-end px-4 md:px-0">
           <button
             onClick={handleOpenModal}
             className="flex items-center gap-2 px-4 py-2 mb-2 rounded-md transition-all duration-200 hover:bg-black/10 dark:hover:bg-white/10 opacity-70"

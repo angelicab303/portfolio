@@ -17,7 +17,7 @@ const Introduction: React.FC = () => {
             Who I Am
           </h4>
           <p className="font-['Rubik'] text-base mb-5 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            I'm a software and full stack developer with a background in project management, UI/UX design, entrepreneurship, and game development. Currently, I'm a full stack developer and UI/UX designer at PushFi, an early-stage fintech AI startup. I graduated from Cornell University in 2025 with a B.A. in Computer Science and minors in Game Design and Creative Writing.
+            I'm a software engineer with a background in project management, UI/UX design, entrepreneurship, and game development. Currently, I'm a full stack developer at PushFi, an early-stage fintech AI startup. I graduated from Cornell University in 2025 with a B.A. in Computer Science and minors in Game Design and Creative Writing.
           </p>
 
           <h4 className="font-['Rubik'] text-[1.3rem] font-semibold mb-[15px] mt-2.5" style={{ color: 'var(--text-primary-90)' }}>

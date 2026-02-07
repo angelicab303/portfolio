@@ -62,20 +62,20 @@ const SimulacrumReadMore: React.FC = () => {
               </h3>
               
               <h4 className="font-['Rubik'] text-base font-semibold mb-2 mt-4" style={{ color: 'var(--text-primary)' }}>
-                Frontend
+                Front end
               </h4>
               <ul className="font-['Rubik'] text-base leading-relaxed mb-3 list-disc list-inside space-y-2" style={{ color: 'var(--text-secondary)' }}>
-                <li>Designed and implemented interactive landing page animations to demonstrate AI forecasting capabilities</li>
+                <li>Designed and implemented an interactive landing page animation to demonstrate AI forecasting capabilities</li>
                 <li>Built responsive user interfaces for the data training webapp with focus on performance optimization</li>
               </ul>
 
               <h4 className="font-['Rubik'] text-base font-semibold mb-2 mt-4" style={{ color: 'var(--text-primary)' }}>
-                Backend
+                Back end
               </h4>
               <ul className="font-['Rubik'] text-base leading-relaxed mb-3 list-disc list-inside space-y-2" style={{ color: 'var(--text-secondary)' }}>
                 <li>Implemented authentication systems and integrated Stripe payment processing</li>
                 <li>Architected and managed PostgreSQL database infrastructure, including schema design and query optimization</li>
-                <li>Developed RESTful API routes to support frontend functionality and third-party integrations</li>
+                <li>Developed RESTful API routes to support front end functionality and third-party integrations</li>
                 <li>Built custom Python package for automated schema generation supporting both Prisma and SQLAlchemy ORMs, reducing deployment and cross-project synchronization from manual updates to a single command execution</li>
               </ul>
             </div>
@@ -141,7 +141,7 @@ const SimulacrumReadMore: React.FC = () => {
                 </p>
                 <ul className="font-['Rubik'] text-base leading-relaxed list-disc list-inside space-y-1" style={{ color: 'var(--text-secondary)' }}>
                   <li>Automatic generation of Prisma schemas for TypeScript/Node.js projects</li>
-                  <li>Automatic generation of SQLAlchemy models for Python backend services</li>
+                  <li>Automatic generation of SQLAlchemy models for Python back end services</li>
                   <li>Maintained consistent data models across different technology stacks</li>
                 </ul>
               </div>

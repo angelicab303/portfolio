@@ -10,14 +10,14 @@ const WorkSection: React.FC = () => {
     {
       title: 'PushFi',
       subtitle: 'Early Stage Fintech AI Startup', 
-      positions: ['Full Stack Engineer', 'UI/UX Designer'],
+      positions: ['Founding Full Stack Developer'],
       date: 'Sep 2025 - Current',
-      description: 'Owned the complete front-end redesign of a fintech lending platform. Developed critical features from the ground up, taking the platform from early prototype to beta-ready. As one of two developers during this phase, I architected and implemented the entire user-facing platform, agent onboarding system, and built secure backend API with optimized database architecture.',
+      description: 'Owned the front end redesign of a fintech lending platform. Developed critical features from the ground up, taking the platform from an early prototype to a beta-ready MVP. As one of two developers during this phase, I architected and implemented the entire user-facing platform, agent onboarding system, and built secure back end API with optimized database architecture.',
       keyResponsibilities: [
         'Redesigned 100% of platform UI/UX for beta launch',
         'Built agent network and white-label branding features from scratch',
         'Architected secure document management system with AWS S3',
-        'Solo developer responsible for front-end, back-end, and database architecture'
+        'Solo developer responsible for front end, back end, and database architecture'
       ],
       technologies: ['React', 'Next.js', 'TypeScript', 'AWS S3', 'MongoDB', 'Tailwind CSS', 'Postman'],
       media: [
@@ -47,11 +47,11 @@ const WorkSection: React.FC = () => {
       subtitle: 'AI Forecasting Service | Cornell Tech Runway Startup', 
       positions: ['Full Stack Developer Intern', 'Part-Time'],
       date: 'Sep 2025 - Dec 2025',
-      description: 'Interned at an AI-powered forecasting startup in the Cornell Tech Runway accelerator program. Created an interactive animation for forecasting visualization and developed full stack features for their web-app platform. Built custom Python package for improved development flow and created an optimized database to manage metadata queries for their internal training data website.',
+      description: 'Interned at an AI-powered forecasting startup in the Cornell Tech Runway accelerator program. Created an interactive animation for forecasting visualization and developed full stack features for their web app platform. Built custom Python package for improved development flow and created an optimized database to manage metadata queries for their internal training data website.',
       technologies: ['React', 'TypeScript', 'Next.js', 'Python', 'FastAPI', 'React', 'Firebase', 'SQL', "Google Cloud Platform", 'Docker'],
       link: [{
         url: 'https://tech.cornell.edu/built/simulacrum/',
-        label: 'Cornell Tech Runway Page'
+        label: 'Simulacrum Cornell Tech Runway'
       },],
       media: [
         {

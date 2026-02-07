@@ -21,7 +21,7 @@ const PushFiReadMore: React.FC = () => {
               Architected secure document management system with AWS S3
             </li>
             <li className="font-['Rubik'] text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Responsible for building core features throughout the front-end, back-end, and database architecture
+              Responsible for building core features throughout the front end, back end, and database architecture
             </li>
           </ul>
         </div>
@@ -40,7 +40,7 @@ const PushFiReadMore: React.FC = () => {
             file uploads and role-based access control.
           </p>
           <p className="font-['Rubik'] text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            Cleaned up database schema organization and eliminated code duplication by extracting repeated definitions into reusable enums and centralized constants, transforming a codebase with scattered redundant definitions into a DRY (Don't Repeat Yourself) architecture.
+            Cleaned up database schema organization and eliminated code duplication by extracting repeated definitions into reusable enums and centralized constants, transforming a codebase with scattered redundant definitions into a DRY architecture.
             Built RESTful APIs with proper error handling and validation using Postman for testing.
           </p>
         </div>
