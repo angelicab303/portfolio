@@ -12,7 +12,7 @@ const WorkSection: React.FC = () => {
       subtitle: 'Early Stage Fintech AI Startup', 
       positions: ['Founding Full Stack Developer'],
       date: 'Sep 2025 - Current',
-      description: 'Owned the front end redesign of a fintech lending platform. Developed critical features from the ground up, taking the platform from an early prototype to a beta-ready MVP. As one of two developers during this phase, I architected and implemented the entire user-facing platform, agent onboarding system, and built secure back end API with optimized database architecture.',
+      description: 'Owned the front end redesign of a fintech lending platform. Developed critical features from the ground up, taking the platform from an early prototype to a beta-ready MVP. As one of two developers during this phase, I architected and implemented the entire user-facing platform, agent onboarding system, and built secure backend API with optimized database architecture.',
       keyResponsibilities: [
         'Redesigned 100% of platform UI/UX for beta launch',
         'Built agent network and white-label branding features from scratch',
@@ -44,7 +44,7 @@ const WorkSection: React.FC = () => {
     },
     {
       title: 'Simulacrum',
-      subtitle: 'AI Forecasting Service | Cornell Tech Runway Startup', 
+      subtitle: 'Time-Series Model Research and Deployment | Cornell Tech Runway Startup', 
       positions: ['Full Stack Developer Intern', 'Part-Time'],
       date: 'Sep 2025 - Dec 2025',
       description: 'Interned at an AI-powered forecasting startup in the Cornell Tech Runway accelerator program. Created an interactive animation for forecasting visualization and developed full stack features for their web app platform. Built custom Python package for improved development flow and created an optimized database to manage metadata queries for their internal training data website.',

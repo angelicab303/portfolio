@@ -28,7 +28,7 @@ const Introduction: React.FC = () => {
           </p>
 
           <p className="font-['Rubik'] text-base mb-5 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            I have 2+ years of technical leadership experience across multiple game development teams at Cornell, where I served as team lead, level environment lead, and UI lead. I'm excited to continue growing my skillset as a developer and to continue working in environments that blend technical rigor with creativity.
+            I have 2+ years of technical leadership experience across multiple game development teams at Cornell, where I served as team lead, level environment lead, and UI lead. I'm passionate about advancing my engineering skills in spaces where technical depth and creative innovation intersect.
           </p>
         </div>
 

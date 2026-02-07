@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
               Angelica Borowy
             </h1>
             <div className="font-light transition-shadow duration-300" style={{ fontSize: subtitleSize, textShadow: '1px 1px 4px rgba(0, 0, 0, 0.7)', color: 'white' }}>
-              <Typewriter options={{ delay: 75 }} onInit={(typewriter) => { typewriter.typeString('Software Engineer. UI/UX Designer. Game Developer.').pauseFor(3000).start(); }} />
+              <Typewriter options={{ delay: 60 }} onInit={(typewriter) => { typewriter.typeString('Software Engineer • UI/UX and Game Development').pauseFor(3000).start(); }} />
             </div>
             <SocialLinks links={socialLinks} iconSize={isMobile ? 24 : 28} gap={isMobile ? '1rem' : '1.5rem'} />
             
