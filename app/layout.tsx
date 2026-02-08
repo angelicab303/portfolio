@@ -23,10 +23,23 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
 
+        {/* Plausible Analytics */}
         <script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token":"94244a203b5b4139a603c6a53b49ca2f"}'
+          async
+          src="https://plausible.io/js/pa-uJKh-FdOy6XgVB6R-CC3x.js"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.plausible = window.plausible || function() {
+                (plausible.q = plausible.q || []).push(arguments)
+              };
+              plausible.init = plausible.init || function(i) {
+                plausible.o = i || {};
+              };
+              plausible.init();
+            `,
+          }}
         />
       </body>
     </html>
