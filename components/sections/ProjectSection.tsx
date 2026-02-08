@@ -12,7 +12,7 @@ const ProjectSection: React.FC = () => {
       subtitle: 'iOS & Android Mobile Party Game | CS 4152: Advanced Game Architecture - Cornell University',
       positions: ['Team Lead', 'Game Programmer', 'Network Engineer'],
       date: 'Jan 2025 - May 2025',
-      description: 'A mobile platformer party game built in Cornell’s CUGL game engine where players take on the antics of mischevious sugar gliders. Players race against each other, forging strategic paths to treasure or scheming to sabotage their fellow gem-hunting friends. Managed a team of programmers and designers to create a production-ready game for the annual GDIAC showcase event with 400+ attendees. Winner of the 2025 GDIAC Judges Choice Award.',
+      description: 'A mobile platformer party game built in Cornell’s CUGL game engine where players take on the antics of mischevious sugar gliders. Players race against each other, forging crafty paths to treasure or plotting strategic traps for their fellow gem-hunting friends. Managed a team of programmers and designers to create a production-ready game for the annual GDIAC showcase event with 400+ attendees. Winner of the 2025 GDIAC Judges Choice Award.',
       keyResponsibilities: [
         'Implemented combat system with combo mechanics and hit detection',
         'Designed and built custom level editor for rapid prototyping',
