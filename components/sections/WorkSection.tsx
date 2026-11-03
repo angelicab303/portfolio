@@ -11,7 +11,7 @@ const WorkSection: React.FC = () => {
       title: 'PushFi',
       subtitle: 'Early Stage Fintech AI Startup', 
       positions: ['Founding Full Stack Developer'],
-      date: 'Sep 2025 - Current',
+      date: 'Sep 2025 - Mar 2026',
       description: 'Owned the front end redesign of a fintech lending platform. Developed critical features from the ground up, taking the platform from an early prototype to a beta-ready MVP. As one of two developers during this phase, I architected and implemented the entire user-facing platform, agent onboarding system, and built secure backend API with optimized database architecture.',
       keyResponsibilities: [
         'Redesigned 100% of platform UI/UX for beta launch',
