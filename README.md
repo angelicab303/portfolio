@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website
 
-## Getting Started
+My personal portfolio, built with [Next.js](https://nextjs.org) and published with GitHub Pages at https://angelicab303.github.io/portfolio/.
 
-First, run the development server:
+## Run Locally
+
+Install dependencies (first time, or whenever `package.json` changes):
+
+```bash
+npm install
+```
+
+Start the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). The page hot-reloads as you edit files (for example `app/page.tsx`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Making and Previewing Changes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Work on a branch so the live site is never affected until you're ready.
 
-## Learn More
+```bash
+git checkout main
+git pull origin main
+git checkout -b my-branch-name
+```
 
-To learn more about Next.js, take a look at the following resources:
+Make your edits, check them at `localhost:3000`, then commit and push the branch:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git add .
+git commit -m "Describe the change"
+git push -u origin my-branch-name
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Pushing a branch does not change the live site.
 
-## Deploy on Vercel
+## Merge to Main
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+When you're happy with the changes, merge into `main`, either by opening a pull request on GitHub and merging it, or locally:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+git checkout main
+git pull origin main
+git merge my-branch-name
+git push origin main
+```
+
+Merging to `main` only updates the source code. It does **not** update the live site.
+
+## Deploy to GitHub Pages
+
+GitHub Pages serves the `gh-pages` branch, which holds the built static site. 
+
+Deploy from an up-to-date `main` branch:
+
+```bash
+git checkout main
+git pull origin main
+npm run deploy
+```
+
+`npm run deploy` does the following:
+
+1. Deletes old build output (`out` and `.next`).
+2. Builds the static site with the `/portfolio` base path.
+3. Adds a `.nojekyll` file so GitHub Pages serves Next.js files correctly.
+4. Force-pushes the `out` folder to the `gh-pages` branch.
+
+Deploy publishes whatever branch is currently checked out, so always run it from `main`.
+
+### Verify the Deploy
+
+- Check the **Actions** tab on GitHub for a green "pages build and deployment" run. It will show a spinning icon when actively deploying and can take a few minutes.
+- Wait 1 to 2 minutes, then hard refresh the live site (Cmd+Shift+R).
+
+## Troubleshooting
+
+- **Git asks for a password during deploy:** GitHub doesn't accept passwords. This repo is set up to use SSH (`git@github.com:angelicab303/portfolio.git`). Check with `ssh -T git@github.com`.
+- **Deploy uses stale or broken state:** clear the cache and retry:
+
+  ```bash
+  npx gh-pages-clean
+  npm run deploy
+  ```
+
+- **Site looks unchanged after deploying:** try a private window to rule out browser caching, and confirm the Actions run succeeded.
+- **CSS or images are broken on the live site:** check that the `/portfolio` base path is still set in the deploy script and `next.config`.
